@@ -1,0 +1,63 @@
+/* ------------- Home page ----------------- */
+
+.header {
+    border-bottom: 2px solid green;
+    padding: 20px;
+    background-color: lightgray;
+}
+
+.header .main-header {
+    display: flex;
+}
+
+.header .main-header a {
+    text-decoration: none;
+}
+
+.header .main-header .logo {
+    display: inline-block;
+    margin-right: auto;
+}
+
+.header .main-header .logo a {
+    color: green;
+    font-style: italic;
+}
+
+.header .main-header .logo i {
+    color: yellowgreen;
+}
+
+.header .main-header .navigation {
+    display: inline-block;
+    margin-right: auto;
+}
+
+.header .main-header .navigation .nav-list {
+    display: flex;
+}
+
+.header .main-header .navigation .nav-list .list-item {
+    margin-right: 10px;
+}
+
+.header .main-header .navigation .nav-list .list-item a {
+    vertical-align: -moz-middle-with-baseline;
+    color: black;
+}
+
+.header .main-header .navigation .nav-list .list-item a:hover,
+.header .main-header .login a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+.header .main-header .login {
+    display: inline-block;
+}
+
+.header .main-header .login a {
+    vertical-align: -moz-middle-with-baseline;
+    margin-right: 10px;
+    color: black;
+}
