@@ -16,6 +16,7 @@
 
 .header .main-header .logo {
     display: inline-block;
+    margin-left: 50px;
     margin-right: auto;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .header .main-header .navigation .nav-list .list-item {
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
 .header .main-header .navigation .nav-list .list-item a {
@@ -60,4 +61,50 @@
     vertical-align: -moz-middle-with-baseline;
     margin-right: 10px;
     color: black;
+}
+
+/*------------------- Top image ------------*/
+
+.top-img-container {
+    height: 90vh;
+    position: relative;
+}
+
+.top-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.top-img-container .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.top-img-container .title {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    color: #fff;
+}
+
+.top-img-container .title h1 {
+    font-size: 36px;
+}
+
+/*--------------- Footer -------------------*/
+
+footer {
+    padding: 10px;
+    background-color: lightgray;
+    display: flex;
+}
+
+footer span:first-of-type {
+    margin-left: auto;
+    margin-right: auto;
 }
