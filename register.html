@@ -29,7 +29,7 @@
             </nav>
 
             <div class="login">
-                <a href="./register.html" class="btn">Sign up</a>
+                <a href="/register.html" class="btn">Sign up</a>
                 <a href="#login" class="btn">Login</a>
             </div>
         </div>
@@ -37,13 +37,25 @@
 
     <main class="main">
 
-        <!--------------- Top image ------------------>
-        <div class="top-img-container">
-            <img src="./public/images/home-photo.avif" alt="library">
-            <div class="overlay"></div>
-            <div class="title">
-                <h1>The world's greatest books on one click.</h1>
-                <h2>Shop new, used, and hard-to-find books online.</h2>
+        <!--------------- Register ------------------>
+
+        <div class="register-container">
+            <div class="image">
+                <img src="./public/images/register-photo.avif" alt="library">
+            </div>
+            <div class="form">
+                <span>Sign up</span>
+                <form action="" class="register-form">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="john@gmail.com">
+                    <label for="password">Password</label>
+                    <input type="text" name="password" placeholder="*******">
+                    <label for="repeatPassword">Confirm password</label>
+                    <input type="text" name="repeatPassword" placeholder="*******">
+
+                    <input type="submit" value="Sign up">
+                </form>
+                <span>Already have an account? <a href="./login.html">Login</a></span>
             </div>
         </div>
     </main>
