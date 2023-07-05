@@ -1,0 +1,10 @@
+footer {
+    padding: 10px;
+    background-color: lightgray;
+    display: flex;
+}
+
+footer span:first-of-type {
+    margin-left: auto;
+    margin-right: auto;
+}
