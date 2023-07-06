@@ -37,29 +37,36 @@
 
     <main class="main">
 
-        <!--------------- Login ------------------>
-
-        <div class="login-container">
-            <div class="image">
-                <img src="../images/login-books.avif" alt="books">
-            </div>
-            <div class="form">
-                <span>Login</span>
-                <form action="" class="users-form">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" placeholder="john@gmail.com">
-                    <label for="password">Password</label>
-                    <input type="text" name="password" placeholder="*******">
-
-                    <input type="submit" value="Login">
+        <!--------------- Sell book ------------------>
+        
+        <div class="sell-book-container">
+            <div class="background">
+                <div class="image-background">
+                    <img src="../images/sell-book-liverpool-photo.avif" alt="book shop">
+                </div>
+                <div class="overlay"></div>
+                <form action="" method="POST">
+                    <label for="bookName">Book name</label>
+                    <input type="text" name="bookName" placeholder="Don Quixote">
+                    <label for="imageUrl">Image url</label>
+                    <input type="text" name="imageUrl" placeholder="https://...">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" placeholder="Miguel de Cervantes">
+                    <label for="cover">Cover</label>
+                    <input type="text" name="cover" placeholder="Hardcover">
+                    <label for="coverPrice">Cover Price</label>
+                    <input type="text" name="coverPrice" placeholder="32.00 lv.">
+                    <label for="offer">Offer</label>
+                    <input type="text" name="offer" placeholder="23.50 lv.">
+                    <hr>
+                    <input type="submit" value="Sell book">
                 </form>
-                <span>Don’t have a "Old Bookshelves" account yet? <a href="./register.html">Sign up</a></span>
             </div>
-            <div class="right-top-img">
-                <img src="../images/login-books-and-student.avif" alt="books">
+            <div class="left-image">
+                <img src="../images/sell-book-photo.avif" alt="street photo">
             </div>
-            <div class="left-down-img">
-                <img src="../images/login-books-with-flower.avif" alt="books">
+            <div class="right-image">
+                <img src="../images/sell-book-inside.avif" alt="book shop">
             </div>
         </div>
     </main>
