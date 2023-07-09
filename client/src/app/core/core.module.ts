@@ -5,13 +5,15 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { UsedBooksComponent } from './used-books/used-books.component';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         HomeComponent,
         FooterComponent,
-        AboutComponent
+        AboutComponent,
+        UsedBooksComponent
     ],
     imports: [
         CommonModule,
@@ -21,7 +23,8 @@ import { AboutComponent } from './about/about.component';
         HeaderComponent,
         HomeComponent,
         FooterComponent,
-        AboutComponent
+        AboutComponent,
+        UsedBooksComponent
     ]
 })
 export class CoreModule { }
