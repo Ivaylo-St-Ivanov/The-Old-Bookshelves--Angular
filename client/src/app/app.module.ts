@@ -13,9 +13,9 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
+    UserRoutingModule,
     AppRoutingModule,
     CoreModule,
-    UserRoutingModule,
     UserModule
   ],
   providers: [],
