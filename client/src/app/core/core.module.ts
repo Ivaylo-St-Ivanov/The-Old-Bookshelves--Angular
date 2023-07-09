@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { UsedBooksComponent } from './used-books/used-books.component';
 import { Page404Component } from './page404/page404.component';
+import { GlobalLoaderComponent } from './global-loader/global-loader.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -15,11 +17,13 @@ import { Page404Component } from './page404/page404.component';
         FooterComponent,
         AboutComponent,
         UsedBooksComponent,
-        Page404Component
+        Page404Component,
+        GlobalLoaderComponent
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        SharedModule
     ],
     exports: [
         HeaderComponent,
@@ -27,7 +31,8 @@ import { Page404Component } from './page404/page404.component';
         FooterComponent,
         AboutComponent,
         UsedBooksComponent,
-        Page404Component
+        Page404Component,
+        GlobalLoaderComponent
     ]
 })
 export class CoreModule { }

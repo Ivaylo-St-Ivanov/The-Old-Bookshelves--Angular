@@ -1,0 +1,10 @@
+<div *ngIf="globalLoaderService.isLoading" class="top-img-container">
+    <img src="../../../assets/images/home-photo.avif" alt="library">
+    <div class="overlay"></div>
+    <div class="loader-wrapper">
+        <div>
+            <app-loader />
+        </div>
+        <h1>Reading</h1>
+    </div>
+</div>
