@@ -1,0 +1,56 @@
+.details-page-container {
+    padding: 70px 200px 70px 200px;
+}
+
+.details-page-container .main-info {
+    display: flex;
+    padding-bottom: 30px;
+}
+
+.details-page-container .main-info .background-image {
+    margin-right: 30px;
+    width: 250px;
+    height: 250px;
+}
+
+.details-page-container .main-info .background-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.details-page-container .main-info .left-side span {
+    display: block;
+}
+
+.details-page-container .main-info .left-side h3 {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.details-page-container .buttons {
+    margin-bottom: 20px;
+}
+
+.details-page-container .buttons button {
+    width: 70px;
+    color: green;
+    font-weight: bolder;
+    box-shadow: 4px 4px 8px 0px gray;
+    margin-right: 20px;
+}
+
+.details-page-container .buttons button:hover {
+    cursor: pointer;
+    box-shadow: unset;
+}
+
+.details-page-container .description {
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.details-page-container hr {
+    margin-bottom: 20px;
+    color: green;
+}

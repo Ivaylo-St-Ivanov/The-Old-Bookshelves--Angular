@@ -16,6 +16,10 @@ export class UsedBooksComponent implements OnInit {
     constructor(private booksService: BooksService, public globalLoaderService: GlobalLoaderService) { }
 
     ngOnInit(): void {
+        this.loadAllUsedBooks();
+    };
+
+    loadAllUsedBooks(): void {
         this.globalLoaderService.showLoader();
 
         setTimeout(() => {
@@ -24,5 +28,5 @@ export class UsedBooksComponent implements OnInit {
                 this.globalLoaderService.hideLoader();
             });
         }, 2500);
-    };
+    }
 };

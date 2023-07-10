@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { UsedBooksComponent } from './used-books/used-books.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
     declarations: [
-        UsedBooksComponent
+        UsedBooksComponent,
+        BookDetailsComponent
     ],
     imports: [
         CommonModule,

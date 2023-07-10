@@ -8,13 +8,9 @@ const restApiKey = '1oWpcMtcWoMqXnhweM4Wb36dp9iAvRagC6E0thhm';
 @Injectable({
     providedIn: 'root'
 })
-export class BooksService implements OnInit {
+export class BooksService {
 
     constructor(private http: HttpClient) { }
-
-    ngOnInit(): void {
-        //
-    }
 
     getAllUsedBooks() {
         return this.http.get<any>(URL, {

@@ -2,7 +2,7 @@
     <h3>Used Books</h3>
     <hr>
     <div class="cards">
-        <a *ngFor="let book of booksList" href="">
+        <a *ngFor="let book of booksList" href="/books/{{book.objectId}}/details">
             <div class="card">
                 <div class="image">
                     <img src="{{book.imageUrl}}" alt="{{book.bookName}} by {{book.author}}">
