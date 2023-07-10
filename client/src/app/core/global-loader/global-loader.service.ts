@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class GlobalLoaderService {
-  isLoading: boolean = false;
+    isLoading: boolean = false;
 
-  constructor() { }
+    constructor() { }
 
-  showLoader() {
-    this.isLoading = true;
-  }
+    showLoader() {
+        this.isLoading = true;
+    }
 
-  hideLoader() {
-    this.isLoading = false;
-  }
+    hideLoader() {
+        this.isLoading = false;
+    }
 }

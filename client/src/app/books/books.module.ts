@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { UsedBooksComponent } from './used-books/used-books.component';
 
 @NgModule({
     declarations: [
-        RegisterComponent,
-        LoginComponent
+        UsedBooksComponent
     ],
     imports: [
         CommonModule,
         RouterModule
+    ],
+    exports: [
+        UsedBooksComponent
     ]
 })
-export class UserModule { }
+export class BooksModule { }
