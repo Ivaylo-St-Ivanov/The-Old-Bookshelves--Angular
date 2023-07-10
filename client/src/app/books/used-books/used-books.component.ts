@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Book } from 'src/app/types/Book';
 
+import { GlobalLoaderService } from 'src/app/core/global-loader/global-loader.service';
 import { BooksService } from '../books.service';
 
 @Component({
@@ -12,11 +13,16 @@ import { BooksService } from '../books.service';
 export class UsedBooksComponent implements OnInit {
     booksList: Book[] = [];
 
-    constructor(private booksService: BooksService) { }
+    constructor(private booksService: BooksService, public globalLoaderService: GlobalLoaderService) { }
 
     ngOnInit(): void {
-        this.booksService.getAllUsedBooks().subscribe((books) => {
-            this.booksList = books.results;
-        });
+        this.globalLoaderService.showLoader();
+
+        setTimeout(() => {
+            this.booksService.getAllUsedBooks().subscribe((books) => {
+                this.booksList = books.results;
+                this.globalLoaderService.hideLoader();
+            });
+        }, 2500);
     };
 };
