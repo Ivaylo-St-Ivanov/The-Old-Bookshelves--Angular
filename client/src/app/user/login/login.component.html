@@ -4,11 +4,11 @@
     </div>
     <div class="form">
         <span>Login</span>
-        <form action="" class="users-form">
+        <form #loginForm="ngForm" (ngSubmit)="submitHandler(loginForm)" class="users-form">
             <label for="email">Email</label>
-            <input type="text" name="email" placeholder="john@gmail.com">
+            <input type="text" name="email" placeholder="john@gmail.com" ngModel>
             <label for="password">Password</label>
-            <input type="text" name="password" placeholder="*******">
+            <input type="text" name="password" placeholder="*******" ngModel>
 
             <input type="submit" value="Login">
         </form>
