@@ -5,7 +5,7 @@ import { AboutComponent } from './core/about/about.component';
 import { HomeComponent } from './core/home/home.component';
 import { Page404Component } from './core/page404/page404.component';
 
-import { path } from './util/util';
+import { path } from './util/paths';
 
 const routes: Routes = [
     {

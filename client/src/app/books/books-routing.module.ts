@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsedBooksComponent } from './used-books/used-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
-import { path } from '../util/util';
+import { path } from '../util/paths';
 
 const routes: Routes = [
     {
