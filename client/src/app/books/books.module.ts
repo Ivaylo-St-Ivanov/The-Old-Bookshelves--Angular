@@ -15,7 +15,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
         RouterModule
     ],
     exports: [
-        UsedBooksComponent
+        UsedBooksComponent,
+        BookDetailsComponent
     ]
 })
 export class BooksModule { }

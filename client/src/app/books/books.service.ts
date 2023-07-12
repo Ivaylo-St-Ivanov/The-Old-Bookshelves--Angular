@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+
+import { Book } from '../types/Book';
 
 const URL = 'https://parseapi.back4app.com/classes/UsedBook';
 const appId = 'sHoFUCih1jGOaithEx5pZ0Ko7aPYyzNhyF2gVHsW';
@@ -20,4 +22,13 @@ export class BooksService {
             }
         });
     };
-}
+
+    getUsedBookById(id: number) {
+        return this.http.get<Book>(`${URL}/${id}`, {
+            headers: {
+                'X-Parse-Application-Id': appId,
+                'X-Parse-REST-API-Key': restApiKey
+            }
+        });
+    };
+};

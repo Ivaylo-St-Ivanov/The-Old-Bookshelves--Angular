@@ -9,11 +9,17 @@ import { path } from '../util/util';
 const routes: Routes = [
     {
         path: path.usedBook,
-        component: UsedBooksComponent
-    },
-    {
-        path: path.bookDetails,
-        component: BookDetailsComponent
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                component: UsedBooksComponent
+            },
+            {
+                path: path.bookDetails,
+                component: BookDetailsComponent
+            }
+        ]
     }
 ];
 
