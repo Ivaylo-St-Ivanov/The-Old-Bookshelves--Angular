@@ -16,9 +16,15 @@
             </ul>
         </nav>
 
-        <div class="login">
+        <div *ngIf="!isLoggedIn" class="login">
             <a routerLink="/users/register" class="btn">Sign up</a>
             <a routerLink="/users/login" class="btn">Login</a>
+        </div>
+
+        <div *ngIf="isLoggedIn" class="user">
+            <i class="far fa-user"></i>
+            <span> {{username}}</span>
+            <button (click)="logout()">Logout</button>
         </div>
     </div>
 </header>

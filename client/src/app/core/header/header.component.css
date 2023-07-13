@@ -60,3 +60,28 @@
     margin-right: 10px;
     color: black;
 }
+
+.header .main-header .user i {
+    border: 1px solid green;
+    border-radius: 100%;
+    padding: 8px;
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.header .main-header .user span {
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.header .main-header .user button {
+    border-radius: unset;
+    color: green;
+    margin-right: 20px;
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.header .main-header .user button:hover {
+    background-color: yellowgreen;
+}
