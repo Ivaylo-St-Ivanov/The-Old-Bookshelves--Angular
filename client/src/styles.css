@@ -56,3 +56,12 @@
 .form span:last-of-type a:hover {
     text-decoration: none;
 }
+
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.error-message {
+    margin-top: 20px;
+    color: red;
+}

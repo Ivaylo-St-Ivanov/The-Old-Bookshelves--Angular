@@ -13,6 +13,10 @@ export class LoginComponent {
     constructor(private userService: UserService, private router: Router) { }
 
     submitHandler(form: NgForm): void {
+        if (form.invalid) {
+            return
+        }
+        
         const value: User = form.value;
 
         this.userService.login();
