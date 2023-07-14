@@ -5,6 +5,7 @@ import { UsedBooksComponent } from './used-books/used-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
 import { path } from '../util/paths';
+import { SellBookComponent } from './sell-book/sell-book.component';
 
 const routes: Routes = [
     {
@@ -20,6 +21,10 @@ const routes: Routes = [
                 component: BookDetailsComponent
             }
         ]
+    },
+    {
+        path: path.sellBook,
+        component: SellBookComponent
     }
 ];
 

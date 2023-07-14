@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 
 import { UsedBooksComponent } from './used-books/used-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { SellBookComponent } from './sell-book/sell-book.component';
 
 @NgModule({
     declarations: [
         UsedBooksComponent,
-        BookDetailsComponent
+        BookDetailsComponent,
+        SellBookComponent
     ],
     imports: [
         CommonModule,
@@ -16,7 +18,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     ],
     exports: [
         UsedBooksComponent,
-        BookDetailsComponent
+        BookDetailsComponent,
+        SellBookComponent
     ]
 })
 export class BooksModule { }
