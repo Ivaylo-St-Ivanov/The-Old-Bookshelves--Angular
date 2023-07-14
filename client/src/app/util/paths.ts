@@ -6,5 +6,6 @@ export const path = {
     bookDetails: ':bookId/details',
     register: 'users/register',
     login: 'users/login',
+    guardPage: 'guard-page',
     page404: '**'
 }

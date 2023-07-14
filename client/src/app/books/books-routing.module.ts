@@ -6,6 +6,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 
 import { path } from '../util/paths';
 import { SellBookComponent } from './sell-book/sell-book.component';
+import { AuthActivate } from '../core/guards/auth.activate';
+import { GuardPageComponent } from './guard-page/guard-page.component';
 
 const routes: Routes = [
     {
@@ -24,7 +26,12 @@ const routes: Routes = [
     },
     {
         path: path.sellBook,
-        component: SellBookComponent
+        component: SellBookComponent,
+        canActivate: [AuthActivate]
+    },
+    {
+        path: path.guardPage,
+        component: GuardPageComponent
     }
 ];
 

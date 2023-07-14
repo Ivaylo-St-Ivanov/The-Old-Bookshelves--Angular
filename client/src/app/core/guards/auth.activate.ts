@@ -9,7 +9,7 @@ export class AuthActivate implements CanActivate {
     constructor(private userService: UserService, private router: Router) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        return (this.checkIsLogged() || this.router.createUrlTree(['/users/login']));
+        return (this.checkIsLogged() || this.router.createUrlTree(['/guard-page']));
     }
 
     checkIsLogged(): boolean {

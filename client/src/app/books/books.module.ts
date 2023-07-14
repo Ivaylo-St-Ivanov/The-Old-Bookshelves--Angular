@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { UsedBooksComponent } from './used-books/used-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { SellBookComponent } from './sell-book/sell-book.component';
+import { GuardPageComponent } from './guard-page/guard-page.component';
 
 @NgModule({
     declarations: [
         UsedBooksComponent,
         BookDetailsComponent,
-        SellBookComponent
+        SellBookComponent,
+        GuardPageComponent
     ],
     imports: [
         CommonModule,
@@ -19,7 +21,8 @@ import { SellBookComponent } from './sell-book/sell-book.component';
     exports: [
         UsedBooksComponent,
         BookDetailsComponent,
-        SellBookComponent
+        SellBookComponent,
+        GuardPageComponent
     ]
 })
 export class BooksModule { }
