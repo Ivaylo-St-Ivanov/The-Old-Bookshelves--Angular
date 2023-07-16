@@ -59,12 +59,17 @@
 
 .header .main-header .login {
     display: inline-block;
+    font-size: 18px;
 }
 
 .header .main-header .login a {
     vertical-align: -moz-middle-with-baseline;
     margin-right: 10px;
     color: black;
+}
+
+.header .main-header .login a:first-of-type {
+    padding-right: 10px;
 }
 
 .header .main-header .user a {

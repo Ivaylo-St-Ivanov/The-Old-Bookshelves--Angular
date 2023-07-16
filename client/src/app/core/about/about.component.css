@@ -5,8 +5,14 @@
     width: 70%;
     height: 70%;
     background-color: rgba(154, 205, 50, 0.7);
-    padding: 50px;
-    color: #fff;
+    padding: 50px 70px;
+    color: black;
+    overflow: scroll;
+    scrollbar-color: green yellow;
+}
+
+.about hr {
+    color: green;
 }
 
 .about h2 {
@@ -14,5 +20,20 @@
 }
 
 .about p {
+    font-size: 18px;
     font-style: italic;
+}
+
+@media(max-width: 850px) {
+    .about {
+        padding: 50px;
+    }
+}
+
+@media(max-width: 550px) {
+    .about {
+        left: 30px;
+        width: 80%;
+        padding: 30px;
+    }
 }
