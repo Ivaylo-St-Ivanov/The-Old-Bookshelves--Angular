@@ -1,5 +1,5 @@
 .details-page-container {
-    padding: 70px 200px 70px 200px;
+    padding: 70px 300px;
 }
 
 .details-page-container .main-info {
@@ -9,8 +9,8 @@
 
 .details-page-container .main-info .background-image {
     margin-right: 30px;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
 }
 
 .details-page-container .main-info .background-image img {
@@ -28,8 +28,15 @@
     margin-bottom: 20px;
 }
 
+.details-page-container .main-info .left-side span:last-of-type i {
+    padding: 0px 10px;
+    font-size: 20px;
+    color: green;
+}
+
 .details-page-container .buttons {
     margin-bottom: 20px;
+    margin-left: 500px;
 }
 
 .details-page-container .buttons button {
@@ -53,4 +60,82 @@
 .details-page-container hr {
     margin-bottom: 20px;
     color: green;
+}
+
+@media(max-width: 1370px) {
+    .details-page-container {
+        padding: 70px 250px;
+    }
+}
+
+@media(max-width: 1270px) {
+    .details-page-container {
+        padding: 70px 200px;
+    }
+}
+
+@media(max-width: 1170px) {
+    .details-page-container {
+        padding: 70px 150px;
+    }
+}
+
+@media(max-width: 1070px) {
+    .details-page-container .buttons {
+        margin-left: 400px;
+    }
+}
+
+@media(max-width: 970px) {
+    .details-page-container {
+        padding: 70px 100px;
+    }
+
+    .details-page-container .main-info .background-image {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media(max-width: 870px) {
+    .details-page-container .buttons {
+        margin-left: 300px;
+    }
+}
+
+@media(max-width: 770px) {
+    .details-page-container .buttons {
+        margin-left: 200px;
+    }
+}
+
+@media(max-width: 670px) {
+    .details-page-container {
+        padding: 50px 50px;
+    }
+
+    .details-page-container .main-info .background-image {
+        width: 200px;
+        height: 250px;
+    }
+
+    .details-page-container .buttons {
+        margin-left: 100px;
+    }
+}
+
+@media(max-width: 470px) {
+    .details-page-container .main-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-page-container .main-info .left-side h3 {
+        margin-bottom: unset;
+    }
+
+    .details-page-container .buttons {
+        margin-left: unset;
+    }
 }
