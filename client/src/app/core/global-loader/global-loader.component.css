@@ -75,3 +75,13 @@ h1:after {
         content: "...";
     }
 }
+
+@media(max-width: 430px) {
+    .top-img-container .loader-wrapper div {
+        margin-right: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}

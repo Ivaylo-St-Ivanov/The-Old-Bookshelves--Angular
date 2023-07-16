@@ -16,11 +16,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 70px;
+    text-align: center;
 }
 
 .top-img-container .message p {
     font-size: 36px;
-    margin-right: 30px;
     text-shadow: 12px 12px 4px black;
     color: #fff;
 }
@@ -39,4 +42,20 @@
     color: #fff;
     font-size: 24px;
     padding-left: 10px;
+}
+
+@media(max-width: 580px) or (max-height: 580px) {
+    .top-img-container .message p {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 450px) or (max-height: 450px) {
+    .top-img-container .message p {
+        font-size: 26px;
+    }
+
+    .top-img-container .message a {
+        font-size: 22px;
+    }
 }
