@@ -2,16 +2,18 @@
     <h3>Used Books</h3>
     <hr>
     <div class="cards">
-        <a *ngFor="let book of booksList" [routerLink]="['/books/used-books/', book.objectId, 'details']">
-            <div class="card">
+        <div class="card" *ngFor="let book of booksList">
+            <a [routerLink]="['/books/used-books/', book.objectId, 'details']">
                 <div class="image">
                     <img src="{{book.imageUrl}}" alt="{{book.bookName}} by {{book.author}}">
                 </div>
-                <span>{{book.bookName}}</span>
-                <span>by {{book.author}}</span>
-                <span>with {{book.cover}}</span>
-                <span><strong>{{book.price}} lv.</strong> <s>{{book.coverPrice}} lv.</s></span>
-            </div>
-        </a>
+                <div class="info">
+                    <span>{{book.bookName}}</span>
+                    <span>by {{book.author}}</span>
+                    <span>with {{book.cover}}</span>
+                    <span><strong>{{book.price}} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{book.coverPrice}} lv.</s></span>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
