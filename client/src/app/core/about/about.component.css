@@ -8,7 +8,7 @@
     padding: 50px 70px;
     color: black;
     overflow: scroll;
-    scrollbar-color: green yellow;
+    scrollbar-color: yellow green;
 }
 
 .about hr {
