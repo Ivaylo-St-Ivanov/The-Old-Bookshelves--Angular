@@ -1,13 +1,13 @@
 .login-container {
     display: flex;
-    height: 80vh;
+    height: 87vh;
     flex-wrap: wrap;
     position: relative;
 }
 
 .login-container .image {
     width: 30%;
-    height: 30vh;
+    height: 37vh;
     box-shadow: 6px 6px 14px 2px;
 }
 
@@ -18,11 +18,24 @@
 
 .login-container .form {
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 87vh;
+}
+
+.login-container .form span:first-of-type {
+    font-size: 36px;
+}
+
+.login-container .form label {
+    font-size: 20px;
 }
 
 .login-container .right-top-img {
     width: 30%;
-    height: 80vh;
+    height: 87vh;
 }
 
 .login-container .right-top-img img {
@@ -34,7 +47,7 @@
 .login-container .left-down-img {
     position: absolute;
     left: 50px;
-    bottom: 10px;
+    bottom: 30px;
     width: 20%;
     height: 50vh;
     border: 5px solid green;
@@ -44,4 +57,81 @@
 .login-container .left-down-img img {
     width: 100%;
     height: 100%;
+}
+
+@media(max-width: 1130px) {
+    .login-container .form {
+        width: 45%;
+    }
+
+    .login-container .right-top-img {
+        width: 25%;
+    }
+}
+
+@media(max-width: 1000px) {
+    .login-container .form span:last-of-type {
+        padding: 0px 50px;
+        text-align: center;
+    }
+}
+
+@media(max-width: 910px) {
+    .login-container .form {
+        width: 65%;
+    }
+
+    .login-container .form span:last-of-type {
+        padding: unset;
+    }
+
+    .login-container .right-top-img {
+        display: none;
+    }
+}
+
+@media(max-width: 695px) {
+    .login-container .image img {
+        object-fit: cover;
+    }
+
+    .login-container .form {
+        width: 70%;
+    }
+
+    .login-container .form span:last-of-type {
+        padding: 0px 40px;
+    }
+
+    .login-container .left-down-img {
+        left: 20px;
+    }
+
+    .login-container .left-down-img img {
+        object-fit: cover;
+    }
+}
+
+@media(max-width: 505px) {
+    .login-container .image {
+        display: none;
+    }
+
+    .login-container .form {
+        width: 100%;
+    }
+
+    .login-container .form span:last-of-type {
+        padding: unset;
+    }
+
+    .login-container .left-down-img {
+        display: none;
+    }
+}
+
+@media(max-width: 450px) {
+    .login-container .form span:last-of-type {
+        padding: 0px 40px;
+    }
 }
