@@ -5,17 +5,33 @@
     <div class="overlay"></div>
     <div class="form">
         <span>Sign up</span>
-        <form action="" class="users-form">
+        <form #registerForm="ngForm" (ngSubmit)="registerSubmitHandler(registerForm)" class="users-form">
             <label for="email">Email</label>
-            <input type="text" name="email" placeholder="john@gmail.com">
+            <input type="text" name="email" placeholder="john@gmail.com" required ngModel #emailInput="ngModel" [appValidateEmail]="">
             <label for="username">Username</label>
-            <input type="text" name="username" placeholder="John Doe">
+            <input type="text" name="username" placeholder="John Doe" required ngModel #usernameInput="ngModel">
             <label for="password">Password</label>
-            <input type="text" name="password" placeholder="*******">
+            <input type="text" name="password" placeholder="*******" required ngModel minlength="5" #passwordInput="ngModel">
             <label for="repeatPassword">Confirm password</label>
-            <input type="text" name="repeatPassword" placeholder="*******">
+            <input type="text" name="repeatPassword" placeholder="*******" required ngModel #rePassInput="ngModel" (ngModelChange)="matchPasswordsValidator(registerForm)">
+            <ng-container *ngIf="emailInput.touched">
+                <p class="error-message" *ngIf="emailInput.errors?.['required']">Email is required!</p>
+                <p class="error-message" *ngIf="emailInput.errors?.['appValidateEmail']">Email is not valid!</p>
+            </ng-container>
+            <ng-container *ngIf="usernameInput.touched">
+                <p class="error-message" *ngIf="usernameInput.errors?.['required']">Username is required!</p>
+            </ng-container>
+            <ng-container *ngIf="passwordInput.touched">
+                <p class="error-message" *ngIf="passwordInput.errors?.['required']">Password is required!</p>
+                <p class="error-message" *ngIf="passwordInput.errors?.['minlength']">Password must be at least {{passwordInput.errors?.['minlength']['requiredLength']}} characters!</p>
+            </ng-container>
+            <ng-container *ngIf="rePassInput.touched">
+                <p class="error-message" *ngIf="!passwordsMatching">Passwords don't match!</p>
+            </ng-container>
 
             <input type="submit" value="Sign up">
+            <!-- [disabled]="registerForm.invalid" [style]="{boxShadow: registerForm.invalid ? '' : '4px 4px 8px 0px'}" -->
+
         </form>
         <span>Already have an account? <a routerLink="/users/login">Login</a></span>
     </div>
