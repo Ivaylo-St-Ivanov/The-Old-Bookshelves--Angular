@@ -1,13 +1,76 @@
 .register-container {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.form {
+    width: 40%;
 }
 
 .image {
-    width: 100%;
-    height: 80vh;
+    width: 60%;
+    height: 88vh;
 }
 
 .image img {
     width: 100%;
     height: 100%;
 }
+
+@media(max-width: 915px) {
+    .register-container {
+        position: relative;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background-color: rgba(92, 182, 128, 0.4);
+    }
+
+    .form {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .form span:first-of-type {
+        text-shadow: unset;
+    }
+
+    .form span:last-of-type a {
+        color: white;
+    }
+}
+
+@media(max-width: 500px) {
+    .image img {
+        object-fit: cover;
+    }
+}
+
+@media(max-height: 490px) {
+    .form {
+        overflow: scroll;
+        width: 70%;
+    }
+
+    .form span:first-of-type {
+        font-size: 26px;
+    }
+}
+
+

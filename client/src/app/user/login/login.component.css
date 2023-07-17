@@ -25,14 +25,6 @@
     height: 87vh;
 }
 
-.login-container .form span:first-of-type {
-    font-size: 36px;
-}
-
-.login-container .form label {
-    font-size: 20px;
-}
-
 .login-container .right-top-img {
     width: 30%;
     height: 87vh;
