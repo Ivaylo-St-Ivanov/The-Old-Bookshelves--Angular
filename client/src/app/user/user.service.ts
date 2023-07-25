@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
+import { BehaviorSubject, tap } from 'rxjs';
 
 import { User } from '../types/User';
+import { environment } from 'src/environments/environment.development';
+import { APP_ID, REST_API_KEY } from '../util/constants';
 
 const { apiUrl } = environment;
 
@@ -10,6 +12,10 @@ const { apiUrl } = environment;
     providedIn: 'root'
 })
 export class UserService {
+    private user$$ = new BehaviorSubject<User | undefined>(undefined);
+
+    public user$ = this.user$$.asObservable();
+
     user: User | undefined;
     USER_KEY = '[user]';
 
@@ -17,42 +23,35 @@ export class UserService {
         return !!this.user;
     }
 
-    constructor(private http: HttpClient) {
-        try {
-            const lsUser = localStorage.getItem(this.USER_KEY) || '';
-            this.user = JSON.parse(lsUser);
-        } catch (err) {
-            this.user = undefined;
-        }
+    constructor(private http: HttpClient) {}
+
+    HEADERS = {
+        'X-Parse-Application-Id': APP_ID,
+        'X-Parse-REST-API-Key': REST_API_KEY,
+        'X-Parse-Revocable-Session': '1'
     }
 
     register(email: string, username: string, password: string, rePassword: string) {
         return this.http
-            .post(`${apiUrl}/users`, { email, username, password, rePassword },
+            .post<User>(`${apiUrl}/users`, { email, username, password, rePassword },
                 {
                     headers: {
-                        'X-Parse-Application-Id': 'sHoFUCih1jGOaithEx5pZ0Ko7aPYyzNhyF2gVHsW',
-                        'X-Parse-REST-API-Key': '1oWpcMtcWoMqXnhweM4Wb36dp9iAvRagC6E0thhm',
-                        'X-Parse-Revocable-Session': '1',
+                        ...this.HEADERS,
                         'Content-Type': 'application/json'
                     }
-                });
+                })
+            .pipe(tap((user) => this.user$$.next(user)));
     }
 
     login(email: string, password: string) {
         return this.http
-            .post(`${apiUrl}/login`, { email, password },
-                {
-                    headers: {
-                        'X-Parse-Application-Id': 'sHoFUCih1jGOaithEx5pZ0Ko7aPYyzNhyF2gVHsW',
-                        'X-Parse-REST-API-Key': '1oWpcMtcWoMqXnhweM4Wb36dp9iAvRagC6E0thhm',
-                        'X-Parse-Revocable-Session': '1'
-                    }
-                });
+            .post<User>(`${apiUrl}/login`, { email, password }, { headers: this.HEADERS })
+            .pipe(tap((user) => this.user$$.next(user)));
     }
 
-    logout(): void {
-        this.user = undefined;
-        localStorage.removeItem(this.USER_KEY);
+    logout() {
+        return this.http
+            .post<User>(`${apiUrl}/logout`, {}, { headers: this.HEADERS })
+            .pipe(tap(() => this.user$$.next(undefined)));
     }
 }
