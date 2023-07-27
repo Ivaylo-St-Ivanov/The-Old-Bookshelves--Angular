@@ -12,6 +12,7 @@ import { BooksModule } from './books/books.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,7 @@ import { AppComponent } from './app.component';
         UserModule,
         SharedModule
     ],
-    providers: [],
+    providers: [appInterceptorProvider],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

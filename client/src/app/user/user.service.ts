@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 
 import { User } from '../types/User';
 import { environment } from 'src/environments/environment.development';
@@ -11,7 +11,7 @@ const { apiUrl } = environment;
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnDestroy {
     private user$$ = new BehaviorSubject<User | undefined>(undefined);
 
     public user$ = this.user$$.asObservable();
@@ -23,7 +23,13 @@ export class UserService {
         return !!this.user;
     }
 
-    constructor(private http: HttpClient) {}
+    subscription: Subscription;
+
+    constructor(private http: HttpClient) {
+        this.subscription = this.user$.subscribe((user) => {
+            this.user = user;
+        });
+    }
 
     HEADERS = {
         'X-Parse-Application-Id': APP_ID,
@@ -53,5 +59,9 @@ export class UserService {
         return this.http
             .post<User>(`${apiUrl}/logout`, {}, { headers: this.HEADERS })
             .pipe(tap(() => this.user$$.next(undefined)));
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 }
