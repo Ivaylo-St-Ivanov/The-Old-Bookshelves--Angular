@@ -22,6 +22,14 @@ const routes: Routes = [
         component: AboutComponent
     },
     {
+        path: path.books,
+        loadChildren: () => import('./books/books.module').then((m) => m.BooksModule)
+    },
+    {
+        path: path.users,
+        loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
+    },
+    {
         path: path.page404,
         component: Page404Component
     }
