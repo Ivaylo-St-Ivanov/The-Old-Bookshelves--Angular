@@ -9,12 +9,14 @@
             <input type="text" name="email" placeholder="john@gmail.com" ngModel required #emailInput="ngModel" [appValidateEmail]="">
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="*******" ngModel required #passwordInput="ngModel">
-            <div *ngIf="emailInput.touched" class="error-message">
+            <ng-container *ngIf="emailInput.touched" class="error-message">
                 <div *ngIf="emailInput.errors?.['required']">Email is required!</div>
                 <div *ngIf="emailInput.errors?.['appValidateEmail']">Invalid email or password!</div>
+            </ng-container>
+            <ng-container *ngIf="passwordInput.touched">
                 <div *ngIf="passwordInput.errors?.['required']">Password is required!</div>
-            </div>
-
+            </ng-container>
+            
             <input type="submit" value="Login">
         </form>
         <span>Don’t have a "Old Bookshelves" account yet? <a routerLink="/users/register">Sign up</a></span>
