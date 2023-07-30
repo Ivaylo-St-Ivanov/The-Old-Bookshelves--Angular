@@ -48,8 +48,7 @@ export class UserService implements OnDestroy {
                         'Content-Type': 'application/json'
                     }
                 })
-            .pipe(tap((user) => localStorage.setItem(USER_KEY, user.sessionToken)))
-            .pipe(tap((user) => this.user$$.next(user)));
+            .pipe(tap((user) => localStorage.setItem(USER_KEY, user.sessionToken)));
     }
 
     login(email: string, password: string) {

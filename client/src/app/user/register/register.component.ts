@@ -30,7 +30,11 @@ export class RegisterComponent {
         const { email, username, password, rePassword } = form.value;
 
         this.userService.register(email!, username!, password!, rePassword!).subscribe(() => {
-            this.router.navigate(['/books/used-books']);
+            this.userService.getCurrentUser().subscribe({
+                next: () => {
+                    this.router.navigate(['/books/used-books']);
+                }
+            });
         });
     }
 }
