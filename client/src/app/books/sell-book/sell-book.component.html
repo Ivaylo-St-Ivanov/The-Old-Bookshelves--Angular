@@ -3,21 +3,38 @@
         <img src="../../../assets/images/sell-book-photo.avif" alt="street photo">
     </div>
 
-    <form>
+    <form #sellForm="ngForm" (ngSubmit)="sellBookSubmitHandler(sellForm)">
         <label for="bookName">Book name</label>
-        <input type="text" name="bookName" placeholder="Don Quixote">
+        <input type="text" name="bookName" placeholder="Don Quixote" ngModel required #bookNameInput="ngModel">
+        <ng-container *ngIf="bookNameInput.touched">
+            <p class="error-message" *ngIf="bookNameInput.errors?.['required']">Book name is required!</p>
+        </ng-container>
         <label for="imageUrl">Image url</label>
-        <input type="text" name="imageUrl" placeholder="https://...">
+        <input type="text" name="imageUrl" placeholder="https://..." ngModel required #imageUrlInput="ngModel">
+        <ng-container *ngIf="imageUrlInput.touched">
+            <p class="error-message" *ngIf="imageUrlInput.errors?.['required']">Image is required!</p>
+        </ng-container>
         <label for="author">Author</label>
-        <input type="text" name="author" placeholder="Miguel de Cervantes">
+        <input type="text" name="author" placeholder="Miguel de Cervantes" ngModel required #authorInput="ngModel">
+        <ng-container *ngIf="authorInput.touched">
+            <p class="error-message" *ngIf="authorInput.errors?.['required']">Author is required!</p>
+        </ng-container>
         <label for="cover">Cover</label>
-        <input type="text" name="cover" placeholder="Hardcover">
+        <input type="text" name="cover" placeholder="Hardcover" ngModel #coverInput="ngModel">
         <label for="coverPrice">Cover Price</label>
-        <input type="text" name="coverPrice" placeholder="32.00 lv.">
+        <input type="number" name="coverPrice" placeholder="32.00 lv." ngModel min="0" #coverPriceInput="ngModel">
+        <ng-container *ngIf="priceInput.touched">
+            <p class="error-message" *ngIf="priceInput.errors?.['required']">Cover price is required!</p>
+            <p class="error-message" *ngIf="priceInput.errors?.['min']">Price cannot be negative!</p>
+        </ng-container>
         <label for="offer">Offer</label>
-        <input type="text" name="offer" placeholder="23.50 lv.">
+        <input type="number" name="price" placeholder="23.50 lv." ngModel required min="0" #priceInput="ngModel">
+        <ng-container *ngIf="priceInput.touched">
+            <p class="error-message" *ngIf="priceInput.errors?.['required']">Price is required!</p>
+            <p class="error-message" *ngIf="priceInput.errors?.['min']">Price cannot be negative!</p>
+        </ng-container>
         <hr>
-        <textarea name="description" cols="30" rows="10" placeholder="Description"></textarea>
+        <textarea name="description" cols="30" rows="10" placeholder="Description" ngModel #descriptionInput="ngModel"></textarea>
         <input type="submit" value="Sell book">
     </form>
     

@@ -6,6 +6,7 @@ import { UsedBooksComponent } from './used-books/used-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { SellBookComponent } from './sell-book/sell-book.component';
 import { GuardPageComponent } from './guard-page/guard-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { GuardPageComponent } from './guard-page/guard-page.component';
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        FormsModule
     ],
     exports: [
         UsedBooksComponent,
