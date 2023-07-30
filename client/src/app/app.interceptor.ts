@@ -2,14 +2,22 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS
 import { Injectable, Provider } from "@angular/core";
 import { Observable } from "rxjs";
 
+import { USER_KEY } from './util/constants';
+
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        req = req.clone({
-            withCredentials: true
-        });
+        const token = localStorage.getItem(USER_KEY);
+        
+        if (token) {
+            const cloned = req.clone({
+                headers: req.headers.set('X-Parse-Session-Token', token)
+            });
 
-        return next.handle(req);
+            return next.handle(cloned);
+        } else {
+            return next.handle(req);
+        }
     }
 }
 

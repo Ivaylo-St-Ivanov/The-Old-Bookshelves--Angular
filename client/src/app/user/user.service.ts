@@ -4,7 +4,7 @@ import { BehaviorSubject, Subscription, tap } from 'rxjs';
 
 import { User } from '../types/User';
 import { environment } from 'src/environments/environment.development';
-import { APP_ID, REST_API_KEY } from '../util/constants';
+import { APP_ID, REST_API_KEY, USER_KEY } from '../util/constants';
 
 const { apiUrl } = environment;
 
@@ -17,10 +17,12 @@ export class UserService implements OnDestroy {
     public user$ = this.user$$.asObservable();
 
     user: User | undefined;
-    USER_KEY = '[user]';
 
     get isLogged(): boolean {
-        return !!this.user;
+        if (localStorage.getItem(USER_KEY) != null) {
+            return true;
+        }
+        return false;
     }
 
     subscription: Subscription;
@@ -46,19 +48,28 @@ export class UserService implements OnDestroy {
                         'Content-Type': 'application/json'
                     }
                 })
+            .pipe(tap((user) => localStorage.setItem(USER_KEY, user.sessionToken)))
             .pipe(tap((user) => this.user$$.next(user)));
     }
 
     login(email: string, password: string) {
         return this.http
             .post<User>(`${apiUrl}/login`, { email, password }, { headers: this.HEADERS })
+            .pipe(tap((user) => localStorage.setItem(USER_KEY, user.sessionToken)))
             .pipe(tap((user) => this.user$$.next(user)));
     }
 
     logout() {
         return this.http
             .post<User>(`${apiUrl}/logout`, {}, { headers: this.HEADERS })
+            .pipe(tap(() => localStorage.removeItem(USER_KEY)))
             .pipe(tap(() => this.user$$.next(undefined)));
+    }
+
+    getCurrentUser() {
+        return this.http
+            .get<User>(`${apiUrl}/users/me`, { headers: this.HEADERS })
+            .pipe(tap((user) => this.user$$.next(user)));
     }
 
     ngOnDestroy(): void {
