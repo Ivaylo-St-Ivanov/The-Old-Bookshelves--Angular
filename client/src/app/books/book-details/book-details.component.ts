@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Book } from 'src/app/types/Book';
 import { UserService } from 'src/app/user/user.service';
@@ -15,7 +15,7 @@ export class BookDetailsComponent implements OnInit {
     book: Book | undefined;
     isOwner: boolean = false;
 
-    constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService) { }
+    constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
 
     ngOnInit(): void {
         this.getBook();
@@ -32,5 +32,15 @@ export class BookDetailsComponent implements OnInit {
                 
                 this.book = book;
             }));
+    }
+
+    onDeleteClick() {
+        const id = this.activatedRoute.snapshot.params['bookId'];
+
+        this.bookService.deleteBook(id).subscribe({
+            next: () => {
+                this.router.navigate(['/books/used-books']);
+            }
+        });
     }
 }

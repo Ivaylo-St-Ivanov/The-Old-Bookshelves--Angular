@@ -14,7 +14,7 @@
         <button *ngIf="!isOwner">Buy</button>
         <ng-container *ngIf="isOwner">
             <button>Edit</button>
-            <button>Delete</button>
+            <button (click)="onDeleteClick()">Delete</button>
         </ng-container>
     </div>
     <span class="description">Description</span>

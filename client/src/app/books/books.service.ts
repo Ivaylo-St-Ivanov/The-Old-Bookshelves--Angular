@@ -37,4 +37,8 @@ export class BooksService {
     getUsedBookById(id: number) {
         return this.http.get<Book>(`${apiUrl}/classes/UsedBook/${id}`, { headers: this.HEADERS });
     };
+
+    deleteBook(id: number) {
+        return this.http.delete<Book>(`${apiUrl}/classes/UsedBook/${id}`, { headers: this.HEADERS });
+    }
 };
