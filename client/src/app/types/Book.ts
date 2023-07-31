@@ -7,4 +7,5 @@ export interface Book {
     coverPrice: number;
     price: number;
     description: string;
+    owner: any;
 }
