@@ -7,3 +7,16 @@ export const isValidEmail = (email: string) => {
 
     return 'valid';
 };
+
+export const createPointer = (className: string, objectId: string) => {
+    return { __type: 'Pointer', className, objectId };
+};
+
+export const addOwner = (record: object, ownerId: string) => {
+    const data = {
+        ...record,
+        owner: createPointer('_User', ownerId)
+    };
+
+    return data;
+};

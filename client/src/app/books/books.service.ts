@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Book } from '../types/Book';
 import { environment } from 'src/environments/environment.development';
 import { APP_ID, REST_API_KEY } from '../util/constants';
+import { addOwner } from '../util/util';
 
 const { apiUrl } = environment;
 
@@ -19,8 +20,8 @@ export class BooksService {
         'X-Parse-REST-API-Key': REST_API_KEY
     }
 
-    createBook(imageUrl: string, bookName: string, author: string, cover: string, coverPrice: number, price: number, description: string) {
-        return this.http.post<Book>(`${apiUrl}/classes/UsedBook`, { imageUrl, bookName, author, cover, coverPrice, price, description },
+    createBook(data: object, userId: string) {
+        return this.http.post<Book>(`${apiUrl}/classes/UsedBook`, addOwner(data, userId),
             {
                 headers: {
                     ...this.HEADERS,
