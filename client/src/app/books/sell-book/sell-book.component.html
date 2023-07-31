@@ -4,6 +4,7 @@
     </div>
 
     <form #sellForm="ngForm" (ngSubmit)="sellBookSubmitHandler(sellForm)">
+        <h3>To sell your book, please fill this form.</h3>
         <label for="bookName">Book name</label>
         <input type="text" name="bookName" placeholder="Don Quixote" ngModel required #bookNameInput="ngModel">
         <ng-container *ngIf="bookNameInput.touched">
@@ -33,8 +34,8 @@
             <p class="error-message" *ngIf="priceInput.errors?.['required']">Price is required!</p>
             <p class="error-message" *ngIf="priceInput.errors?.['min']">Price cannot be negative!</p>
         </ng-container>
-        <hr>
-        <textarea name="description" cols="30" rows="10" placeholder="Description" ngModel #descriptionInput="ngModel"></textarea>
+        <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="10" placeholder="..........." ngModel #descriptionInput="ngModel"></textarea>
         <input type="submit" value="Sell book">
     </form>
     
