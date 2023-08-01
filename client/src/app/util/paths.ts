@@ -5,6 +5,7 @@ export const path = {
     sellBook: 'books/sell-book',
     usedBook: 'books/used-books',
     bookDetails: ':bookId/details',
+    editBook: 'books/:bookId/edit-book',
     users: 'users',
     register: 'users/register',
     login: 'users/login',

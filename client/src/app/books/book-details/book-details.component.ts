@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Book } from 'src/app/types/Book';
-import { UserService } from 'src/app/user/user.service';
 
+import { UserService } from 'src/app/user/user.service';
 import { BooksService } from '../books.service';
 
 @Component({
@@ -32,6 +32,12 @@ export class BookDetailsComponent implements OnInit {
                 
                 this.book = book;
             }));
+    }
+
+    onEditClick() {
+        const id = this.activatedRoute.snapshot.params['bookId'];
+
+        this.router.navigate([`/books/${id}/edit-book`]);
     }
 
     onDeleteClick() {

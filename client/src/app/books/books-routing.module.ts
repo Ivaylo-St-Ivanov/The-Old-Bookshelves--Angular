@@ -8,6 +8,7 @@ import { path } from '../util/paths';
 import { SellBookComponent } from './sell-book/sell-book.component';
 import { AuthActivate } from '../core/guards/auth.activate';
 import { GuardPageComponent } from './guard-page/guard-page.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 const routes: Routes = [
     {
@@ -27,6 +28,11 @@ const routes: Routes = [
     {
         path: path.sellBook,
         component: SellBookComponent,
+        canActivate: [AuthActivate]
+    },
+    {
+        path: path.editBook,
+        component: EditBookComponent,
         canActivate: [AuthActivate]
     },
     {

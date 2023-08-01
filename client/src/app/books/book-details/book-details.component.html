@@ -13,7 +13,7 @@
     <div class="buttons">
         <button *ngIf="!isOwner">Buy</button>
         <ng-container *ngIf="isOwner">
-            <button>Edit</button>
+            <button (click)="onEditClick()">Edit</button>
             <button (click)="onDeleteClick()">Delete</button>
         </ng-container>
     </div>
