@@ -34,11 +34,21 @@ export class BooksService {
         return this.http.get<any>(`${apiUrl}/classes/UsedBook`, { headers: this.HEADERS });
     };
 
-    getUsedBookById(id: number) {
-        return this.http.get<Book>(`${apiUrl}/classes/UsedBook/${id}`, { headers: this.HEADERS });
+    getUsedBookById(bookId: number) {
+        return this.http.get<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, { headers: this.HEADERS });
     };
 
-    deleteBook(id: number) {
-        return this.http.delete<Book>(`${apiUrl}/classes/UsedBook/${id}`, { headers: this.HEADERS });
+    editBookById(data: object, bookId: string, userId: string) {
+        return this.http.put<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, addOwner(data, userId),
+            {
+                headers: {
+                    ...this.HEADERS,
+                    'Content-Type': 'application/json'
+                }
+            });
+    }
+
+    deleteBook(bookId: number) {
+        return this.http.delete<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, { headers: this.HEADERS });
     }
 };

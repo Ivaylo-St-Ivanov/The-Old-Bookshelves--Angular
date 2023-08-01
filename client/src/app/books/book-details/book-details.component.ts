@@ -22,10 +22,10 @@ export class BookDetailsComponent implements OnInit {
     }
 
     getBook(): void {
-        const id = this.activatedRoute.snapshot.params['bookId'];
+        const bookId = this.activatedRoute.snapshot.params['bookId'];
 
         this.userService.getCurrentUser().subscribe((user) =>
-            this.bookService.getUsedBookById(id).subscribe((book) => {
+            this.bookService.getUsedBookById(bookId).subscribe((book) => {
                 if (user.objectId == book.owner?.objectId) {
                     this.isOwner = true;
                 }        
@@ -35,15 +35,15 @@ export class BookDetailsComponent implements OnInit {
     }
 
     onEditClick() {
-        const id = this.activatedRoute.snapshot.params['bookId'];
+        const bookId = this.activatedRoute.snapshot.params['bookId'];
 
-        this.router.navigate([`/books/${id}/edit-book`]);
+        this.router.navigate([`/books/${bookId}/edit-book`]);
     }
 
     onDeleteClick() {
-        const id = this.activatedRoute.snapshot.params['bookId'];
+        const bookId = this.activatedRoute.snapshot.params['bookId'];
 
-        this.bookService.deleteBook(id).subscribe({
+        this.bookService.deleteBook(bookId).subscribe({
             next: () => {
                 this.router.navigate(['/books/used-books']);
             }
