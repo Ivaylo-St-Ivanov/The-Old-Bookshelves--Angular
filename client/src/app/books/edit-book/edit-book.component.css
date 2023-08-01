@@ -1,0 +1,48 @@
+.edit-book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(311deg, rgba(34, 193, 195, 1) 0%, rgba(137, 190, 125, 1) 23%, rgba(190, 189, 89, 1) 71%, rgba(253, 187, 45, 1) 100%);
+}
+
+.edit-book-container form {
+    width: 50%;
+    padding: 50px 0px;
+}
+
+.edit-book-container form label {
+    color: white;
+    font-size: 18px;
+}
+
+.edit-book-container form input,
+.edit-book-container form textarea {
+    width: 100%;
+    background-color: transparent;
+    box-shadow: -4px 0px 10px 2px;
+    margin-bottom: 10px;
+}
+
+.edit-book-container form input:last-of-type {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.edit-book-container form input:last-of-type:hover {
+    cursor: pointer;
+    box-shadow: unset;
+}
+
+@media(max-width: 600px) {
+    .edit-book-container form {
+        width: 60%;
+    }
+}
+
+@media(max-width: 400px) {
+    .edit-book-container form {
+        width: 70%;
+    }
+}

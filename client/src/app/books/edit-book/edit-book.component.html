@@ -1,1 +1,37 @@
-<p>edit-book works!</p>
+<div class="edit-book-container">
+    <form>
+        <label for="bookName">Book name</label>
+        <input type="text" name="bookName">
+        <ng-container *ngIf="">
+            <p class="error-message" *ngIf="['required']">Book name is required!</p>
+        </ng-container>
+        <label for="imageUrl">Image url</label>
+        <input type="text" name="imageUrl">
+        <ng-container *ngIf="">
+            <p class="error-message" *ngIf="['required']">Image is required!</p>
+        </ng-container>
+        <label for="author">Author</label>
+        <input type="text" name="author">
+        <ng-container *ngIf="">
+            <p class="error-message" *ngIf="['required']">Author is required!</p>
+        </ng-container>
+        <label for="cover">Cover</label>
+        <input type="text" name="cover">
+        <label for="coverPrice">Cover Price</label>
+        <input type="number" name="coverPrice" min="0">
+        <ng-container *ngIf="">
+            <p class="error-message" *ngIf="['required']">Cover price is required!</p>
+            <p class="error-message" *ngIf="['min']">Price cannot be negative!</p>
+        </ng-container>
+        <label for="offer">Offer</label>
+        <input type="number" name="price" min="0">
+        <ng-container *ngIf="">
+            <p class="error-message" *ngIf="['required']">Price is required!</p>
+            <p class="error-message" *ngIf="['min']">Price cannot be negative!</p>
+        </ng-container>
+        <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="Edit book">
+    </form>
+</div>
