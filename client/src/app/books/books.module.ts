@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UsedBooksComponent } from './used-books/used-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { SellBookComponent } from './sell-book/sell-book.component';
 import { GuardPageComponent } from './guard-page/guard-page.component';
-import { FormsModule } from '@angular/forms';
 import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
@@ -20,7 +20,8 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     imports: [
         CommonModule,
         RouterModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         UsedBooksComponent,

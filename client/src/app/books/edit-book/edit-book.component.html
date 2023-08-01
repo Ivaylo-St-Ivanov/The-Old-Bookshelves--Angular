@@ -1,37 +1,37 @@
 <div class="edit-book-container">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onEditBookSubmit()">
         <label for="bookName">Book name</label>
-        <input type="text" name="bookName">
-        <ng-container *ngIf="">
-            <p class="error-message" *ngIf="['required']">Book name is required!</p>
+        <input type="text" name="bookName" formControlName="bookName">
+        <ng-container *ngIf="form.get('bookName')?.touched">
+            <p class="error-message" *ngIf="form.get('bookName')?.errors?.['required']">Book name is required!</p>
         </ng-container>
         <label for="imageUrl">Image url</label>
-        <input type="text" name="imageUrl">
-        <ng-container *ngIf="">
-            <p class="error-message" *ngIf="['required']">Image is required!</p>
+        <input type="text" name="imageUrl" formControlName="imageUrl">
+        <ng-container *ngIf="form.get('imageUrl')?.touched">
+            <p class="error-message" *ngIf="form.get('imageUrl')?.errors?.['required']">Image is required!</p>
         </ng-container>
         <label for="author">Author</label>
-        <input type="text" name="author">
-        <ng-container *ngIf="">
-            <p class="error-message" *ngIf="['required']">Author is required!</p>
+        <input type="text" name="author" formControlName="author">
+        <ng-container *ngIf="form.get('author')?.touched">
+            <p class="error-message" *ngIf="form.get('author')?.errors?.['required']">Author is required!</p>
         </ng-container>
         <label for="cover">Cover</label>
-        <input type="text" name="cover">
+        <input type="text" name="cover" formControlName="cover">
         <label for="coverPrice">Cover Price</label>
-        <input type="number" name="coverPrice" min="0">
-        <ng-container *ngIf="">
-            <p class="error-message" *ngIf="['required']">Cover price is required!</p>
-            <p class="error-message" *ngIf="['min']">Price cannot be negative!</p>
+        <input type="number" name="coverPrice" formControlName="coverPrice" min="0">
+        <ng-container *ngIf="form.get('coverPrice')?.touched">
+            <p class="error-message" *ngIf="form.get('coverPrice')?.errors?.['required']">Cover price is required!</p>
+            <p class="error-message" *ngIf="form.get('coverPrice')?.errors?.['min']">Price cannot be negative!</p>
         </ng-container>
         <label for="offer">Offer</label>
-        <input type="number" name="price" min="0">
-        <ng-container *ngIf="">
-            <p class="error-message" *ngIf="['required']">Price is required!</p>
-            <p class="error-message" *ngIf="['min']">Price cannot be negative!</p>
+        <input type="number" name="price" formControlName="price" min="0">
+        <ng-container *ngIf="form.get('price')?.touched">
+            <p class="error-message" *ngIf="form.get('price')?.errors?.['required']">Price is required!</p>
+            <p class="error-message" *ngIf="form.get('price')?.errors?.['min']">Price cannot be negative!</p>
         </ng-container>
         <label for="description">Description</label>
-        <textarea name="description" cols="30" rows="10"></textarea>
+        <textarea name="description" formControlName="description" cols="30" rows="10"></textarea>
 
-        <input type="submit" value="Edit book">
+        <input type="submit" [disabled]="form.invalid" value="Edit book">
     </form>
 </div>
