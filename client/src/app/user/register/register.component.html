@@ -12,8 +12,8 @@
             <input type="text" name="username" placeholder="John Doe" required ngModel #usernameInput="ngModel">
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="*******" required ngModel minlength="5" #passwordInput="ngModel">
-            <label for="repeatPassword">Confirm password</label>
-            <input type="password" name="repeatPassword" placeholder="*******" required ngModel #rePassInput="ngModel" (ngModelChange)="matchPasswordsValidator(registerForm)">
+            <label for="rePassword">Confirm password</label>
+            <input type="password" name="rePassword" placeholder="*******" required ngModel #rePassInput="ngModel" (ngModelChange)="matchPasswordsValidator(registerForm)">
             <ng-container *ngIf="emailInput.touched">
                 <p class="error-message" *ngIf="emailInput.errors?.['required']">Email is required!</p>
                 <p class="error-message" *ngIf="emailInput.errors?.['appValidateEmail']">Email is not valid!</p>
@@ -33,6 +33,10 @@
             <!-- [disabled]="registerForm.invalid" [style]="{boxShadow: registerForm.invalid ? '' : '4px 4px 8px 0px'}" -->
 
         </form>
+
+        <div *ngIf="requestErrors" class="request-errors-container">
+            <p class="request-errors">{{ requestErrors }}</p>
+        </div>
         <span>Already have an account? <a routerLink="/users/login">Login</a></span>
     </div>
 </div>

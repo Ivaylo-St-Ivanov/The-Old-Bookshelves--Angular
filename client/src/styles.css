@@ -61,6 +61,8 @@
     text-decoration: none;
 }
 
+/*----------- Errors ------------------*/
+
 input.ng-invalid.ng-touched {
     border: 2px solid red;
 }
@@ -68,4 +70,18 @@ input.ng-invalid.ng-touched {
 .error-message {
     margin-top: 20px;
     color: red;
+}
+
+.request-errors-container {
+    position: fixed;
+    top: 85px;
+    right: 50px;
+    width: 30%;
+    background-color: rgba(240, 111, 111, 0.6);
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid red;
+    padding: 10px 0px;
 }
