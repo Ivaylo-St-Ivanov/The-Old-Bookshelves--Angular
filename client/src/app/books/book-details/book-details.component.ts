@@ -6,6 +6,8 @@ import { Book } from 'src/app/types/Book';
 import { UserService } from 'src/app/user/user.service';
 import { BooksService } from '../books.service';
 
+import { USER_KEY } from 'src/app/util/constants';
+
 @Component({
     selector: 'app-book-details',
     templateUrl: './book-details.component.html',
@@ -24,14 +26,23 @@ export class BookDetailsComponent implements OnInit {
     getBook(): void {
         const bookId = this.activatedRoute.snapshot.params['bookId'];
 
-        this.userService.getCurrentUser().subscribe((user) =>
+        const token = localStorage.getItem(USER_KEY);
+
+        if (token) {
+            this.userService.getCurrentUser().subscribe((user) =>
+                this.bookService.getUsedBookById(bookId).subscribe((book) => {
+                    if (user.objectId == book.owner?.objectId) {
+                        this.isOwner = true;
+                    }
+
+                    this.book = book;
+                }));
+        } else {
             this.bookService.getUsedBookById(bookId).subscribe((book) => {
-                if (user.objectId == book.owner?.objectId) {
-                    this.isOwner = true;
-                }        
-                
+
                 this.book = book;
-            }));
+            });
+        }
     }
 
     onEditClick() {
