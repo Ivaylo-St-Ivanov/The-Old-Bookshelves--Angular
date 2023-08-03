@@ -20,4 +20,17 @@
     <span class="description">Description</span>
     <hr>
     <p class="content">&emsp;{{book.description}}</p>
+
+    <div *ngIf="isDeleteClick" class="delete-confirmation-container">
+        <div class="middle-container">
+            <div class="delete-confirmation">
+                <div>
+                    <p>Are you sure you want to delete <b>{{ book.bookName }}?</b></p>
+                    <hr>
+                    <button (click)="onCancelClick()" class="cancel">CANCEL</button>
+                    <button (click)="onDeleteConfirmation()" class="delete">Yes, DELETE</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

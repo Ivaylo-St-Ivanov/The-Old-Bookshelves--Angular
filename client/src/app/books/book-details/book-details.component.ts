@@ -16,6 +16,8 @@ import { USER_KEY } from 'src/app/util/constants';
 export class BookDetailsComponent implements OnInit {
     book: Book | undefined;
     isOwner: boolean = false;
+    isDeleteClick: boolean = false;
+    isCancelClick: boolean = false;
 
     constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
 
@@ -52,6 +54,14 @@ export class BookDetailsComponent implements OnInit {
     }
 
     onDeleteClick() {
+        this.isDeleteClick = true;
+    }
+
+    onCancelClick() {
+        this.isDeleteClick = false;
+    }
+
+    onDeleteConfirmation() {
         const bookId = this.activatedRoute.snapshot.params['bookId'];
 
         this.bookService.deleteBook(bookId).subscribe({

@@ -1,5 +1,6 @@
 .details-page-container {
     padding: 70px 300px;
+    position: relative;
 }
 
 .details-page-container .main-info {
@@ -66,6 +67,64 @@
     overflow-wrap: break-word;
     white-space: pre-line;
     white-space: pre-wrap;
+}
+
+.delete-confirmation-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(122, 120, 120, 0.6);
+}
+
+.middle-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-confirmation {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(240, 111, 111, 0.7);
+    border: 4px solid red;
+    border-radius: 15px;
+    box-shadow: 0px 0px 18px 8px white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-confirmation p {
+    font-size: 24px;
+    text-shadow: 1px 1px 0px white;
+}
+
+.delete-confirmation .cancel {
+    margin: 10px;
+    border-radius: 12px;
+    padding: 5px 10px;
+}
+
+.delete-confirmation .cancel:hover {
+    box-shadow: 0px 0px 18px white;
+}
+
+.delete-confirmation .delete {
+    margin: 10px;
+    border-radius: 12px;
+    padding: 5px 10px;
+    color: red;
+}
+
+.delete-confirmation .delete:hover {
+    box-shadow: 0px 0px 18px white;
 }
 
 @media(max-width: 1370px) {
