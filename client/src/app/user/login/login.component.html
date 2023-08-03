@@ -10,15 +10,19 @@
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="*******" ngModel required #passwordInput="ngModel">
             <ng-container *ngIf="emailInput.touched" class="error-message">
-                <div *ngIf="emailInput.errors?.['required']">Email is required!</div>
-                <div *ngIf="emailInput.errors?.['appValidateEmail']">Invalid email or password!</div>
+                <p class="error-message" *ngIf="emailInput.errors?.['required']">Email is required!</p>
+                <p class="error-message" *ngIf="emailInput.errors?.['appValidateEmail']">Invalid email or password!</p>
             </ng-container>
             <ng-container *ngIf="passwordInput.touched">
-                <div *ngIf="passwordInput.errors?.['required']">Password is required!</div>
+                <p class="error-message" *ngIf="passwordInput.errors?.['required']">Password is required!</p>
             </ng-container>
             
             <input type="submit" value="Login">
         </form>
+
+        <div *ngIf="requestErrors" class="request-errors-container">
+            <p class="request-errors">{{ requestErrors }}</p>
+        </div>
         <span>Don’t have a "Old Bookshelves" account yet? <a routerLink="/users/register">Sign up</a></span>
     </div>
     <div class="right-top-img">

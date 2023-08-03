@@ -62,12 +62,6 @@
     }
 }
 
-@media(max-width: 580px) {
-    .request-errors-container {
-        top: 170px;
-    }
-}
-
 @media(max-width: 500px) {
     .image img {
         object-fit: cover;

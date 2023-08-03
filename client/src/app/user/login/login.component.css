@@ -51,6 +51,10 @@
     height: 100%;
 }
 
+.request-errors-container {
+    right: unset;
+}
+
 @media(max-width: 1130px) {
     .login-container .form {
         width: 45%;
@@ -104,6 +108,12 @@
     }
 }
 
+@media(max-width: 580px) {
+    .request-errors-container {
+        width: 40%;
+    }
+}
+
 @media(max-width: 505px) {
     .login-container .image {
         display: none;
@@ -125,5 +135,9 @@
 @media(max-width: 450px) {
     .login-container .form span:last-of-type {
         padding: 0px 40px;
+    }
+
+    .request-errors-container {
+        width: 50%;
     }
 }

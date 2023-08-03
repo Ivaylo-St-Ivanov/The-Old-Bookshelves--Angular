@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
 
 import { UserService } from '../user.service';
 
@@ -10,17 +11,33 @@ import { UserService } from '../user.service';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+    requestErrors: string | null = null;
+
     constructor(private userService: UserService, private router: Router) { }
 
     submitHandler(form: NgForm): void {
-        if (form.invalid) {
-            return
-        }
-        
+
         const { email, password } = form.value;
 
-        this.userService.login(email, password).subscribe(() => {
-            this.router.navigate(['/books/used-books']);
-        });
+        if (email == '' || password == '') {
+            this.requestErrors = 'All fields are required!'
+            throw new Error(this.requestErrors);
+        }
+
+        if (form.invalid) {
+            return;
+        }
+
+        this.userService.login(email, password)
+            .pipe(
+                catchError((err) => {
+                    this.requestErrors = err.error.error;
+
+                    return err;
+                })
+            )
+            .subscribe(() => {
+                this.router.navigate(['/books/used-books']);
+            });
     }
 }

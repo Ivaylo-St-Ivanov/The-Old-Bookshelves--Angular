@@ -91,3 +91,9 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
     padding: 10px 10px;
 }
+
+@media(max-width: 580px) {
+    .request-errors-container {
+        top: 170px;
+    }
+}
