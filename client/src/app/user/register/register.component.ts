@@ -37,7 +37,7 @@ export class RegisterComponent {
             return;
         }
 
-        this.userService.register(email!, username!, password!, rePassword!)
+        this.userService.register(email!, username!, password!)
             .pipe(
                 catchError((err) => {
                     this.requestErrors = err.error.error;

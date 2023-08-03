@@ -39,9 +39,9 @@ export class UserService implements OnDestroy {
         'X-Parse-Revocable-Session': '1'
     }
 
-    register(email: string, username: string, password: string, rePassword: string) {
+    register(email: string, username: string, password: String) {
         return this.http
-            .post<User>(`${apiUrl}/users`, { email, username, password, rePassword },
+            .post<User>(`${apiUrl}/users`, { email, username, password },
                 {
                     headers: {
                         ...this.HEADERS,

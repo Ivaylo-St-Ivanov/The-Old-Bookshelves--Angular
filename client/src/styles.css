@@ -61,6 +61,12 @@
     text-decoration: none;
 }
 
+@media(max-width: 1020px) {
+    .form input:last-of-type {
+        min-width: 60px;
+    }
+}
+
 /*----------- Errors ------------------*/
 
 input.ng-invalid.ng-touched {
@@ -83,5 +89,5 @@ input.ng-invalid.ng-touched {
     text-align: center;
     border-radius: 15px;
     border: 1px solid red;
-    padding: 10px 0px;
+    padding: 10px 10px;
 }
