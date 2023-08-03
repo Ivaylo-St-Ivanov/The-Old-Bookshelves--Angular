@@ -15,6 +15,7 @@ import { USER_KEY } from 'src/app/util/constants';
 })
 export class BookDetailsComponent implements OnInit {
     book: Book | undefined;
+    isAuthenticated: boolean = false;
     isOwner: boolean = false;
     isDeleteClick: boolean = false;
     isCancelClick: boolean = false;
@@ -23,6 +24,11 @@ export class BookDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getBook();
+        
+        const token = localStorage.getItem(USER_KEY);
+        if (token) {
+            this.isAuthenticated = true;
+        }
     }
 
     getBook(): void {

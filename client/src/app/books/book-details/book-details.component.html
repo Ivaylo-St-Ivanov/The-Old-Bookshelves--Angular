@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="buttons">
-        <button *ngIf="!isOwner">Buy</button>
+        <button *ngIf="isAuthenticated && !isOwner">Buy</button>
         <ng-container *ngIf="isOwner">
             <button (click)="onEditClick()">Edit</button>
             <button (click)="onDeleteClick()">Delete</button>
