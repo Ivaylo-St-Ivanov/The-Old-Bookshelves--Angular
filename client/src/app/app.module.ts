@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { UserRoutingModule } from './user/user-routing.module';
@@ -26,8 +25,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
         BooksRoutingModule,
         AppRoutingModule,
         CoreModule,
-        SharedModule,
-        CarouselModule.forRoot()
+        SharedModule
     ],
     providers: [appInterceptorProvider],
     bootstrap: [AppComponent]

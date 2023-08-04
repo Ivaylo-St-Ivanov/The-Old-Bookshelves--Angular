@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -10,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { Page404Component } from './page404/page404.component';
 import { GlobalLoaderComponent } from './global-loader/global-loader.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
     declarations: [
@@ -18,12 +20,14 @@ import { GlobalLoaderComponent } from './global-loader/global-loader.component';
         FooterComponent,
         AboutComponent,
         Page404Component,
-        GlobalLoaderComponent
+        GlobalLoaderComponent,
+        CarouselComponent
     ],
     imports: [
         CommonModule,
         RouterModule,
-        SharedModule
+        SharedModule,
+        CarouselModule.forRoot()
     ],
     exports: [
         HeaderComponent,
@@ -31,7 +35,8 @@ import { GlobalLoaderComponent } from './global-loader/global-loader.component';
         FooterComponent,
         AboutComponent,
         Page404Component,
-        GlobalLoaderComponent
+        GlobalLoaderComponent,
+        CarouselComponent
     ]
 })
 export class CoreModule { }
