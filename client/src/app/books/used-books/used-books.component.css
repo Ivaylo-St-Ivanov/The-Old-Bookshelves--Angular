@@ -22,6 +22,7 @@
 .cards .card {
     width: 18%;
     padding: 20px 0px;
+    border: unset;
 }
 
 .cards .card a {

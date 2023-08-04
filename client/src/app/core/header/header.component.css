@@ -26,6 +26,7 @@
 
 .header .main-header .logo i {
     color: yellowgreen;
+    text-shadow: 2px 1px 0px yellow;
 }
 
 .header .main-header .navigation {
