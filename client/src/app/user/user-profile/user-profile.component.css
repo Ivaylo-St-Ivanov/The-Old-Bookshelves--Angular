@@ -1,0 +1,91 @@
+.user-profile-container {
+    margin: 50px 200px;
+}
+
+.user {
+    border: 3px solid yellowgreen;
+    border-radius: 24px;
+    padding: 50px 100px;
+    margin: 0px 200px 50px 200px;
+    display: flex;
+    justify-content: space-around;
+    background-color: lightgrey;
+}
+
+.icon {
+    font-size: 48px;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-radius: 100%;
+    padding: 70px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.user-profile-container>p {
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.user-profile-container hr {
+    color: green;
+    margin: 30px 0px;
+}
+
+@media(max-width: 1380px) {
+    .user {
+        margin: 0px 150px 50px 150px;
+    }
+}
+
+@media(max-width: 1280px) {
+    .user {
+        padding: 50px 50px;
+        margin: 0px 100px 50px 100px;
+    }
+}
+
+@media(max-width: 1100px) {
+    .user-profile-container {
+        margin: 50px 150px;
+    }
+}
+
+@media(max-width: 990px) {
+    .user-profile-container {
+        margin: 50px 100px;
+    }
+
+    .user {
+        margin: 0px 50px 50px 50px;
+    }
+}
+
+@media(max-width: 790px) {
+    .user-profile-container {
+        margin: 50px;
+    }
+}
+
+@media(max-width: 690px) {
+    .user {
+        justify-content: center;
+    }
+
+    .icon {
+        display: none;
+    }
+}
+
+@media(max-width: 490px) {
+    .user {
+        padding: 50px 20px;
+        margin: 0px 0px 50px 0px;
+    }
+}

@@ -9,6 +9,7 @@ export const path = {
     users: 'users',
     register: 'users/register',
     login: 'users/login',
+    userProfile: 'users/user-profile',
     guardPage: 'guard-page',
     page404: '**'
 }
