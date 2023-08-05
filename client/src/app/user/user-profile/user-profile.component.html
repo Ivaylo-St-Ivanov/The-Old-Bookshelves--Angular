@@ -6,28 +6,31 @@
             </div>
         </div>
         <div class="user-info">
-            <span>Username: <b>IVo</b></span>
-            <span>Email: <b>ivo@gmail.com</b></span>
-            <span>Password: <b>**************</b></span>
+            <span>Username: <b>{{ user?.username }}</b></span>
+            <span>Email: <b>{{ user?.email }}</b></span>
         </div>
     </div>
 
     <p>My books for sale</p>
     <div class="for-sale">
-        <div class="cards">
-            <div class="card">
-                <a>
+        <div *ngIf="isBooksForSale" class="cards">
+            <div *ngFor="let book of bookForSale" class="card">
+                <a [routerLink]="['/books/used-books/', book.objectId, 'details']">
                     <div class="image">
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg1.od-cdn.com%2FImageType-100%2F1191-1%2F%257B6B82A03C-5829-4697-8B85-761FBBDB1CDA%257DImg100.jpg&f=1&nofb=1&ipt=3efe20e82db62ed9ef21124325686b9add50b6c8989620a4a769987b6de2bc2b&ipo=images" alt="">
+                        <img src="{{ book?.imageUrl }}" alt="{{ book?.bookName }} by {{ book?.author }}">
                     </div>
                     <div class="info">
-                        <span>Atlas of the Heart</span>
-                        <span>by Brené Brown</span>
-                        <span>with Hardcover</span>
-                        <span><strong>32 lv.</strong><i class="fas fa-hand-point-left"></i><s>21 lv.</s></span>
+                        <span>{{ book?.bookName }}</span>
+                        <span>by {{ book?.author }}</span>
+                        <span>with {{ book?.cover }}</span>
+                        <span><strong>{{ book?.price }} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{ book?.coverPrice }} lv.</s></span>
                     </div>
                 </a>
             </div>
+        </div>
+
+        <div *ngIf="!isBooksForSale" class="empty">
+            <p>Still not added books here!</p>
         </div>
     </div>
 

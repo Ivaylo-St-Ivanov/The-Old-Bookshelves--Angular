@@ -33,6 +33,23 @@
     font-weight: bolder;
 }
 
+.user-profile-container .for-sale .cards {
+    justify-content: space-evenly;
+}
+
+.empty {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty p {
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
 .user-profile-container hr {
     color: green;
     margin: 30px 0px;
