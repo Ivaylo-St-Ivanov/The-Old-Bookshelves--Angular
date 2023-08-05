@@ -101,6 +101,10 @@
     align-items: center;
 }
 
+.delete-confirmation>div {
+    padding: 10px;
+}
+
 .delete-confirmation p {
     font-size: 24px;
     text-shadow: 1px 1px 0px white;
@@ -186,6 +190,12 @@
 
     .details-page-container .buttons {
         margin-left: 100px;
+    }
+}
+
+@media(max-width: 600px) {
+    .delete-confirmation {
+        width: 75%;
     }
 }
 
