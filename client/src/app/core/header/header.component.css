@@ -1,8 +1,8 @@
 .header {
     border-bottom: 3px solid green;
     padding: 20px;
-    background: rgb(211,211,211);
-    background: linear-gradient(0deg, rgba(211,211,211,0.9654062308517157) 26%, rgba(184,217,114,0.4724090319721639) 60%, rgba(185,228,97,1) 100%);  
+    background: rgb(211, 211, 211);
+    background: linear-gradient(0deg, rgba(211, 211, 211, 0.9654062308517157) 26%, rgba(184, 217, 114, 0.4724090319721639) 60%, rgba(185, 228, 97, 1) 100%);
 }
 
 .header .main-header {
@@ -112,6 +112,23 @@
 
 .header .main-header .user button:hover {
     background-color: yellowgreen;
+}
+
+.hidden-nav .nav-list {
+    display: flex;
+    justify-content: space-around;
+    background-color: #D5D5D5;
+    padding: 10px 0px;
+    border-bottom: 3px solid green;
+}
+
+.hidden-nav .nav-list a {
+    color: black;
+}
+
+.hidden-nav .nav-list a:hover {
+    color: green;
+    text-decoration: none;
 }
 
 @media(max-width: 990px) {

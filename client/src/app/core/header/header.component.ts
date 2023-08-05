@@ -9,6 +9,8 @@ import { UserService } from 'src/app/user/user.service';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+    isClickedNavBar: boolean = false;
+
     constructor(private userService: UserService, private router: Router) {}
 
     get isLoggedIn(): boolean {
@@ -29,5 +31,9 @@ export class HeaderComponent {
                 this.router.navigate(['/']);
             }
         });
+    }
+
+    onClickNavBar(): void {
+        this.isClickedNavBar = !this.isClickedNavBar;
     }
 }
