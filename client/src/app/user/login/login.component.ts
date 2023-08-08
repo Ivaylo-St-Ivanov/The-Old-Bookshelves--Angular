@@ -37,7 +37,7 @@ export class LoginComponent {
                 })
             )
             .subscribe(() => {
-                this.router.navigate(['/books/used-books']);
+                this.router.navigate(['/books/catalog']);
             });
     }
 }

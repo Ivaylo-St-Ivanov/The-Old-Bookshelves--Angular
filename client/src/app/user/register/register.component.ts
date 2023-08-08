@@ -48,7 +48,7 @@ export class RegisterComponent {
             .subscribe(() => {
                 this.userService.getCurrentUser().subscribe({
                     next: () => {
-                        this.router.navigate(['/books/used-books']);
+                        this.router.navigate(['/books/catalog']);
                     }
                 });
             });

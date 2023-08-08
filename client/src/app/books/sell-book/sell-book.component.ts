@@ -24,7 +24,7 @@ export class SellBookComponent {
 
         this.userService.getCurrentUser().subscribe((user) =>
             this.bookService.createBook({imageUrl, bookName, author, cover, coverPrice, price, description, used}, user.objectId).subscribe(() => {
-                this.router.navigate(['/books/used-books']);
+                this.router.navigate(['/books/catalog']);
             }));
     }
 }

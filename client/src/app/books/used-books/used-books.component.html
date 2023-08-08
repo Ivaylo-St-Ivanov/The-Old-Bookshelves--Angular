@@ -3,7 +3,7 @@
     <hr>
     <div class="cards">
         <div class="card" *ngFor="let book of booksList">
-            <a [routerLink]="['/books/used-books/', book.objectId, 'details']">
+            <a [routerLink]="['/books/catalog/', book.objectId, 'details']">
                 <div class="image">
                     <img src="{{book.imageUrl}}" alt="{{book.bookName}} by {{book.author}}">
                     <div *ngIf="book.used" class="badge">

@@ -50,7 +50,7 @@ export class EditBookComponent implements OnInit {
         this.userService.getCurrentUser().subscribe((user) =>
             this.bookService.editBookById({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, user.objectId).subscribe({
                 next: () => {
-                    this.router.navigate([`/books/used-books/${bookId}/details`]);
+                    this.router.navigate([`/books/catalog/${bookId}/details`]);
                 }
             }));
     }

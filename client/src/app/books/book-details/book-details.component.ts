@@ -76,7 +76,7 @@ export class BookDetailsComponent implements OnInit {
 
         this.bookService.deleteBook(bookId).subscribe({
             next: () => {
-                this.router.navigate(['/books/used-books']);
+                this.router.navigate(['/books/catalog']);
             }
         });
     }
@@ -90,7 +90,7 @@ export class BookDetailsComponent implements OnInit {
 
                 this.bookService.buyBook({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, user.objectId).subscribe({
                     next: () => {
-                        this.router.navigate(['/books/used-books']);
+                        this.router.navigate(['/books/catalog']);
                     }
                 });
             }));

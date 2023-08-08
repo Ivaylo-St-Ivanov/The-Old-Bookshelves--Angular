@@ -12,7 +12,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
 
 const routes: Routes = [
     {
-        path: path.usedBook,
+        path: path.booksCatalog,
         children: [
             {
                 path: '',

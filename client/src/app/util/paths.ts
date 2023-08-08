@@ -3,7 +3,7 @@ export const path = {
     about: 'about',
     books: 'books',
     sellBook: 'books/sell-book',
-    usedBook: 'books/used-books',
+    booksCatalog: 'books/catalog',
     bookDetails: ':bookId/details',
     editBook: 'books/:bookId/edit-book',
     users: 'users',

@@ -15,7 +15,7 @@
     <div class="for-sale">
         <div *ngIf="isBooksForSale" class="cards">
             <div *ngFor="let book of bookForSale" class="card">
-                <a [routerLink]="['/books/used-books/', book.objectId, 'details']">
+                <a [routerLink]="['/books/catalog/', book.objectId, 'details']">
                     <div class="image">
                         <img src="{{ book?.imageUrl }}" alt="{{ book?.bookName }} by {{ book?.author }}">
                     </div>
@@ -39,7 +39,7 @@
     <div class="purchases">
         <div *ngIf="isBoughtBooks" class="cards">
             <div *ngFor="let book of boughtBooks" class="card">
-                <a [routerLink]="['/books/used-books/', book.objectId, 'details']">
+                <a [routerLink]="['/books/catalog/', book.objectId, 'details']">
                     <div class="image">
                         <img src="{{ book?.imageUrl }}" alt="{{ book?.bookName }} by {{ book?.author }}">
                     </div>
