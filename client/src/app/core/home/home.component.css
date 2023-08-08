@@ -80,6 +80,18 @@
     text-align: end;
 }
 
+.five-random-title {
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.five-random {
+    padding: 0px 200px;
+    margin-bottom: 100px;
+}
+
 @media(max-width: 1650px) {
     .top-img-container .title h1 {
         font-size: 60px;
@@ -119,6 +131,10 @@
     .top-img-container .title h2 {
         font-size: 28px;
     }
+
+    .five-random {
+        padding: 0px 150px;
+    }
 }
 
 @media(max-width: 930px) {
@@ -147,6 +163,10 @@
 
     .top-img-container .title h2 {
         font-size: 20px;
+    }
+
+    .five-random {
+        padding: 0px 100px;
     }
 }
 
@@ -184,7 +204,7 @@
     }
 }
 
-@media(max-width: 470px) {
+@media(max-width: 480px) {
     .top-img-container .title {
         left: 10px;
     }
@@ -200,11 +220,19 @@
     .middle h3 {
         font-size: 16px;
     }
+
+    .five-random {
+        padding: 0px 50px;
+    }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 420px) {
     .top-img-container .title {
         top: 0px;
         left: 5px;
+    }
+
+    .five-random {
+        padding: 0px 100px;
     }
 }
