@@ -33,7 +33,8 @@
     font-weight: bolder;
 }
 
-.user-profile-container .for-sale .cards {
+.user-profile-container .for-sale .cards,
+.user-profile-container .purchases .cards {
     justify-content: space-evenly;
 }
 
