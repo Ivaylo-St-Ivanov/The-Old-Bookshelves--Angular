@@ -19,6 +19,7 @@ export class BookDetailsComponent implements OnInit {
     isOwner: boolean = false;
     isDeleteClick: boolean = false;
     isCancelClick: boolean = false;
+    isBought: boolean = false;
 
     constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
 
@@ -41,6 +42,9 @@ export class BookDetailsComponent implements OnInit {
                 this.bookService.getUsedBookById(bookId).subscribe((book) => {
                     if (user.objectId == book.owner?.objectId) {
                         this.isOwner = true;
+                    }
+                    if (book.boughtBy != undefined) {
+                        this.isBought = true;
                     }
 
                     this.book = book;

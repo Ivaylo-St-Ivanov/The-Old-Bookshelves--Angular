@@ -8,4 +8,5 @@ export interface Book {
     price: number;
     description: string;
     owner: any;
+    boughtBy: string;
 }
