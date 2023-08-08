@@ -20,9 +20,10 @@ export class SellBookComponent {
         }
 
         const { imageUrl, bookName, author, cover, coverPrice, price, description } = form.value;
+        const used = true;
 
         this.userService.getCurrentUser().subscribe((user) =>
-            this.bookService.createBook({imageUrl, bookName, author, cover, coverPrice, price, description}, user.objectId).subscribe(() => {
+            this.bookService.createBook({imageUrl, bookName, author, cover, coverPrice, price, description, used}, user.objectId).subscribe(() => {
                 this.router.navigate(['/books/used-books']);
             }));
     }

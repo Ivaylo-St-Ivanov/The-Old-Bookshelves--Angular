@@ -38,11 +38,24 @@
     width: 100%;
     height: 35vh;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .cards .card .image img {
     width: 100%;
     height: 100%;
+}
+
+.cards .card .image .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    border: 2px dashed green;
+    background-color: pink;
+    color: black;
+    padding: 10px;
+    rotate: 18deg;
+    font-size: 14px;
 }
 
 .cards .card .info span {

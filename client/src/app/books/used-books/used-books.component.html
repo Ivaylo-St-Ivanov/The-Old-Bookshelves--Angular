@@ -6,6 +6,9 @@
             <a [routerLink]="['/books/used-books/', book.objectId, 'details']">
                 <div class="image">
                     <img src="{{book.imageUrl}}" alt="{{book.bookName}} by {{book.author}}">
+                    <div *ngIf="book.used" class="badge">
+                        <span>Used</span>
+                    </div>
                 </div>
                 <div class="info">
                     <span>{{book.bookName}}</span>
