@@ -20,3 +20,12 @@ export const addOwner = (record: object, ownerId: string) => {
 
     return data;
 };
+
+export const addBoughtBy = (record: object, userId: string) => {
+    const data = {
+        ...record,
+        boughtBy: createPointer('_User', userId)
+    };
+
+    return data;
+}

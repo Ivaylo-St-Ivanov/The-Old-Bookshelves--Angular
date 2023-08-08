@@ -24,7 +24,7 @@ export class BookDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getBook();
-        
+
         const token = localStorage.getItem(USER_KEY);
         if (token) {
             this.isAuthenticated = true;
@@ -75,5 +75,20 @@ export class BookDetailsComponent implements OnInit {
                 this.router.navigate(['/books/used-books']);
             }
         });
+    }
+
+    onBuyClick() {
+        const bookId = this.activatedRoute.snapshot.params['bookId'];
+
+        this.userService.getCurrentUser().subscribe((user) =>
+            this.bookService.getUsedBookById(bookId).subscribe((book) => {
+                const { bookName, imageUrl, author, cover, coverPrice, price, description } = book;
+
+                this.bookService.buyBook({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, user.objectId).subscribe({
+                    next: () => {
+                        this.router.navigate(['/books/used-books']);
+                    }
+                });
+            }));
     }
 }

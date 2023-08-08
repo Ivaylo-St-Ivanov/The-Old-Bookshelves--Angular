@@ -1,17 +1,17 @@
 <div *ngIf="book" class="details-page-container">
     <div class="main-info">
         <div class="background-image">
-            <img src="{{book?.imageUrl}}" alt="{{book?.bookName}} by {{book?.author}}">
+            <img src="{{book.imageUrl}}" alt="{{book.bookName}} by {{book.author}}">
         </div>
         <div class="left-side">
-            <h3>{{book?.bookName}}</h3>
-            <span>by {{book?.author}}</span>
-            <span>with {{book?.cover}}</span>
-            <span>Price: <strong>{{book?.price}} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{book?.coverPrice}} lv.</s></span>
+            <h3>{{book.bookName}}</h3>
+            <span>by {{book.author}}</span>
+            <span>with {{book.cover}}</span>
+            <span>Price: <strong>{{book.price}} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{book.coverPrice}} lv.</s></span>
         </div>
     </div>
     <div class="buttons">
-        <button *ngIf="isAuthenticated && !isOwner">Buy</button>
+        <button (click)="onBuyClick()" *ngIf="isAuthenticated && !isOwner">Buy</button>
         <ng-container *ngIf="isOwner">
             <button (click)="onEditClick()">Edit</button>
             <button (click)="onDeleteClick()">Delete</button>
@@ -19,13 +19,13 @@
     </div>
     <span class="description">Description</span>
     <hr>
-    <p class="content">&emsp;{{book?.description}}</p>
+    <p class="content">&emsp;{{book.description}}</p>
 
     <div *ngIf="isDeleteClick" class="delete-confirmation-container">
         <div class="middle-container">
             <div class="delete-confirmation">
                 <div>
-                    <p>Are you sure you want to delete <b>{{ book?.bookName }}?</b></p>
+                    <p>Are you sure you want to delete <b>{{ book.bookName }}?</b></p>
                     <hr>
                     <button (click)="onCancelClick()" class="cancel">CANCEL</button>
                     <button (click)="onDeleteConfirmation()" class="delete">Yes, DELETE</button>

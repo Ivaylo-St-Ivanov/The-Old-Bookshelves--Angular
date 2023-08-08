@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Book } from '../types/Book';
 import { environment } from 'src/environments/environment.development';
 import { APP_ID, REST_API_KEY } from '../util/constants';
-import { addOwner } from '../util/util';
+import { addOwner, addBoughtBy } from '../util/util';
 
 const { apiUrl } = environment;
 
@@ -54,5 +54,15 @@ export class BooksService {
 
     deleteBook(bookId: number) {
         return this.http.delete<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, { headers: this.HEADERS });
+    }
+
+    buyBook(data: object, bookId: string, userId: string) {
+        return this.http.put<any>(`${apiUrl}/classes/UsedBook/${bookId}`, addBoughtBy(data, userId),
+            {
+                headers: {
+                    ...this.HEADERS,
+                    'Content-Type': 'application/json'
+                }
+            });
     }
 };
