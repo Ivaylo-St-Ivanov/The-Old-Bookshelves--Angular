@@ -10,6 +10,9 @@
             <span>Price: <strong>{{book.price}} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{book.coverPrice}} lv.</s></span>
         </div>
     </div>
+    <div class="rating">
+        <app-rating />
+    </div>
     <div class="buttons">
         <button (click)="onBuyClick()" *ngIf="isAuthenticated && !isOwner && !isBought">Buy</button>
         <ng-container *ngIf="isOwner">

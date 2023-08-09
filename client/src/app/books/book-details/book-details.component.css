@@ -35,6 +35,10 @@
     color: green;
 }
 
+.rating {
+    margin-bottom: 30px;
+}
+
 .details-page-container .buttons {
     margin-bottom: 20px;
     margin-left: 500px;
