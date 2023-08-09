@@ -1,4 +1,9 @@
-<rating [(ngModel)]="rate" [max]="max"></rating>
-<div class="card">
-    <pre class="card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> </pre>
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+            <li (click)="onClickStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
+                <i class="fa fa-star"></i>
+            </li>
+        </ul>
+    </div>
 </div>

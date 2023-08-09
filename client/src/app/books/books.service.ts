@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs';
 
 import { Book } from '../types/Book';
 import { environment } from 'src/environments/environment.development';
@@ -12,6 +14,8 @@ const { apiUrl } = environment;
     providedIn: 'root'
 })
 export class BooksService {
+    private book$$ = new BehaviorSubject<any>({});
+    book$ = this.book$$.asObservable();
 
     constructor(private http: HttpClient) { }
 
@@ -35,7 +39,9 @@ export class BooksService {
     };
 
     getUsedBookById(bookId: number) {
-        return this.http.get<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, { headers: this.HEADERS });
+        return this.http
+            .get<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, { headers: this.HEADERS })
+            .pipe(tap((book) => this.book$$.next(book)));
     };
 
     getBooksByUser(query: string) {
