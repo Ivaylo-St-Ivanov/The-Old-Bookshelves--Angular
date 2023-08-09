@@ -164,7 +164,7 @@
     }
 }
 
-@media(max-width: 580px) {
+@media(max-width: 660px) {
     .header .main-header {
         flex-direction: column;
         align-items: center;
@@ -196,5 +196,11 @@
 @media(max-width: 400px) {
     .header .main-header .navigation .nav-bar {
         margin-left: 310px;
+    }
+}
+
+@media(max-width: 370px) {
+    .header .main-header .navigation .nav-bar {
+        margin-left: 300px;
     }
 }

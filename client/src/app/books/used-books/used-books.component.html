@@ -14,7 +14,7 @@
                     <span>{{book.bookName}}</span>
                     <span>by {{book.author}}</span>
                     <span>with {{book.cover}}</span>
-                    <span><strong>{{book.price}} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{book.coverPrice}} lv.</s></span>
+                    <span><strong>{{book.price}} lv.</strong><i *ngIf="book.coverPrice" class="fas fa-hand-point-left"></i><s *ngIf="book.coverPrice">{{book.coverPrice}} lv.</s></span>
                 </div>
             </a>
         </div>
