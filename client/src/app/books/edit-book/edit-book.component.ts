@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from 'src/app/user/user.service';
 import { BooksService } from '../books.service';
+import { addOwner } from 'src/app/util/util';
 
 @Component({
     selector: 'app-edit-book',
@@ -20,13 +21,13 @@ export class EditBookComponent implements OnInit {
         price: [0, [Validators.required, Validators.min(0)]],
         description: ['']
     });
+    book: any = {};
+    user: any = {};
 
     constructor(private fb: FormBuilder, private bookService: BooksService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
 
     ngOnInit(): void {
-        const bookId = this.activatedRoute.snapshot.params['bookId'];
-
-        this.bookService.getUsedBookById(bookId).subscribe((book) => {
+        this.bookService.book$.subscribe((book) => {
             this.form.setValue({
                 bookName: book.bookName,
                 imageUrl: book.imageUrl,
@@ -37,6 +38,10 @@ export class EditBookComponent implements OnInit {
                 description: book.description
             });
         });
+
+        this.userService.user$.subscribe((user) => {
+            this.user = user;
+        });
     }
 
     onEditBookSubmit(): void {
@@ -46,12 +51,12 @@ export class EditBookComponent implements OnInit {
 
         const { bookName, imageUrl, author, cover, coverPrice, price, description } = this.form.value;
         const bookId = this.activatedRoute.snapshot.params['bookId'];
+        const userId = this.user.objectId;
 
-        this.userService.getCurrentUser().subscribe((user) =>
-            this.bookService.editBookById({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, user.objectId).subscribe({
-                next: () => {
-                    this.router.navigate([`/books/catalog/${bookId}/details`]);
-                }
-            }));
+        const options = addOwner({ bookName, imageUrl, author, cover, coverPrice, price, description }, userId);
+
+        this.bookService.editBookById(bookId, options).subscribe(() => {
+            this.router.navigate([`/books/catalog/${bookId}/details`]);
+        });
     }
 }
