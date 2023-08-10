@@ -4,6 +4,7 @@ import { Book } from 'src/app/types/Book';
 
 import { GlobalLoaderService } from 'src/app/core/global-loader/global-loader.service';
 import { BooksService } from '../books.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-used-books',
@@ -12,6 +13,7 @@ import { BooksService } from '../books.service';
 })
 export class UsedBooksComponent implements OnInit {
     booksList: Book[] = [];
+    isEmptyBookList: boolean = false;
 
     constructor(private booksService: BooksService, public globalLoaderService: GlobalLoaderService) { }
 
@@ -28,5 +30,29 @@ export class UsedBooksComponent implements OnInit {
                 this.globalLoaderService.hideLoader();
             });
         }, 2500);
+    }
+
+    searchSubmitHandler(form: NgForm): void {
+        this.isEmptyBookList = false;
+        const { search } = form.value;
+
+        this.booksService.getAllUsedBooks().subscribe((books) => {
+            this.booksList = books.results;
+            let results;
+
+            results = this.booksList.filter(b => b.author.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
+
+            if (results.length == 0) {
+                results = this.booksList.filter(b => b.bookName.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
+            }
+            if (results.length == 0) {
+                this.isEmptyBookList = true;
+            }
+            this.booksList = results;
+
+            form.setValue({
+                search: ''
+            });
+        });
     }
 };

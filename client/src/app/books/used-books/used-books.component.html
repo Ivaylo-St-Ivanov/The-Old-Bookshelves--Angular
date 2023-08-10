@@ -1,5 +1,12 @@
 <div *ngIf="!globalLoaderService.isLoading" class="catalog-container">
-    <h3>Catalog</h3>
+    <div class="title-and-search">
+        <h3>Catalog</h3>
+        <div class="search">
+            <form #searchForm="ngForm" (ngSubmit)="searchSubmitHandler(searchForm)">
+                <input type="text" name="search" placeholder="Search" ngModel #searchInput="ngModel"><i (click)="searchSubmitHandler(searchForm)" class="fas fa-search"></i>
+            </form>
+        </div>
+    </div>
     <hr>
     <div class="cards">
         <div class="card" *ngFor="let book of booksList">
@@ -17,6 +24,9 @@
                     <span><strong>{{book.price}} lv.</strong><i *ngIf="book.coverPrice" class="fas fa-hand-point-left"></i><s *ngIf="book.coverPrice">{{book.coverPrice}} lv.</s></span>
                 </div>
             </a>
+        </div>
+        <div *ngIf="isEmptyBookList" class="empty-book-list">
+            <p><i class="far fa-frown"></i>&emsp;Not found results!</p>
         </div>
     </div>
 </div>
