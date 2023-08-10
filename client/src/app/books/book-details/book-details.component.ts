@@ -7,6 +7,7 @@ import { User } from 'src/app/types/User';
 
 import { UserService } from 'src/app/user/user.service';
 import { BooksService } from '../books.service';
+import { GlobalLoaderService } from 'src/app/core/global-loader/global-loader.service';
 
 import { USER_KEY } from 'src/app/util/constants';
 
@@ -28,7 +29,7 @@ export class BookDetailsComponent implements OnInit {
     isBought: boolean = false;
     // boughtBook$ = this.store.select(getBoughtBook);
 
-    constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
+    constructor(private globalLoaderService: GlobalLoaderService, private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
 
     ngOnInit(): void {
         this.userService.user$.subscribe((user) => {
@@ -44,6 +45,8 @@ export class BookDetailsComponent implements OnInit {
     }
 
     getBook(): void {
+        this.globalLoaderService.showLoader();
+        
         const bookId = this.activatedRoute.snapshot.params['bookId'];
 
         const token = localStorage.getItem(USER_KEY);
@@ -59,11 +62,13 @@ export class BookDetailsComponent implements OnInit {
                     }
 
                     this.book = book;
+                    this.globalLoaderService.hideLoader();
                 }));
         } else {
             this.bookService.getUsedBookById(bookId).subscribe((book) => {
 
                 this.book = book;
+                this.globalLoaderService.hideLoader();
             });
         }
     }
