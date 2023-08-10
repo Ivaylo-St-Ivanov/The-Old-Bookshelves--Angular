@@ -35,8 +35,11 @@ export class RatingComponent implements OnInit {
         const bookId = this.activatedRoute.snapshot.params['bookId'];
         const userId = this.user.objectId;
         
-        const { bookName, imageUrl, author, cover, coverPrice, price, description, rating, used, owner, boughtBy } = this.book;
+        let { bookName, imageUrl, author, cover, coverPrice, price, description, rating, used, owner, boughtBy } = this.book;
 
+        if (rating == undefined) {
+            rating = 1;
+        }
         const newRate = Math.ceil((star + rating) / 2);
         
         const newBookData = {
