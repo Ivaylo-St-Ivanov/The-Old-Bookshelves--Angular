@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+// import { Store } from '@ngrx/store';
 
 import { Book } from 'src/app/types/Book';
+import { User } from 'src/app/types/User';
 
 import { UserService } from 'src/app/user/user.service';
 import { BooksService } from '../books.service';
 
 import { USER_KEY } from 'src/app/util/constants';
+
+// import { setData, getData } from 'src/app/store/action';
+// import { getBoughtBook } from 'src/app/store/selector';
 
 @Component({
     selector: 'app-book-details',
@@ -15,15 +20,21 @@ import { USER_KEY } from 'src/app/util/constants';
 })
 export class BookDetailsComponent implements OnInit {
     book: Book | undefined;
+    user: User | undefined;
     isAuthenticated: boolean = false;
     isOwner: boolean = false;
     isDeleteClick: boolean = false;
     isCancelClick: boolean = false;
     isBought: boolean = false;
+    // boughtBook$ = this.store.select(getBoughtBook);
 
     constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
 
     ngOnInit(): void {
+        this.userService.user$.subscribe((user) => {
+            this.user = user;
+        });
+
         this.getBook();
 
         const token = localStorage.getItem(USER_KEY);
@@ -74,25 +85,25 @@ export class BookDetailsComponent implements OnInit {
     onDeleteConfirmation() {
         const bookId = this.activatedRoute.snapshot.params['bookId'];
 
-        this.bookService.deleteBook(bookId).subscribe({
-            next: () => {
-                this.router.navigate(['/books/catalog']);
-            }
+        this.bookService.deleteBook(bookId).subscribe(() => {
+            this.router.navigate(['/books/catalog']);
         });
     }
 
     onBuyClick() {
         const bookId = this.activatedRoute.snapshot.params['bookId'];
+        const userId = this.user?.objectId as string;
 
-        this.userService.getCurrentUser().subscribe((user) =>
-            this.bookService.getUsedBookById(bookId).subscribe((book) => {
-                const { bookName, imageUrl, author, cover, coverPrice, price, description } = book;
+        const { bookName, imageUrl, author, cover, coverPrice, price, description } = this.book as Book;
 
-                this.bookService.buyBook({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, user.objectId).subscribe({
-                    next: () => {
-                        this.router.navigate(['/books/catalog']);
-                    }
-                });
-            }));
+        // const data = [
+        //      userId, { bookName, imageUrl, author, cover, coverPrice, price, description }
+        // ]
+        // this.store.dispatch(setData({ collection: data}));
+        // console.log(this.store.dispatch(getData()));
+        
+        this.bookService.buyBook({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, userId).subscribe(() => {
+            this.router.navigate(['/books/catalog']);
+        });
     }
 }

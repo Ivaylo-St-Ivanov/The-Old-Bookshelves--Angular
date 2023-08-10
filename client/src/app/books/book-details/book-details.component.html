@@ -14,7 +14,7 @@
         <app-rating />
     </div>
     <div class="buttons">
-        <button (click)="onBuyClick()" *ngIf="isAuthenticated && !isOwner && !isBought">Buy</button>
+        <button (click)="onBuyClick()" *ngIf="isAuthenticated && !isOwner">Buy</button>
         <ng-container *ngIf="isOwner">
             <button (click)="onEditClick()">Edit</button>
             <button (click)="onDeleteClick()">Delete</button>
