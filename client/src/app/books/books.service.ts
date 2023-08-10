@@ -48,8 +48,8 @@ export class BooksService {
         return this.http.get<any>(`${apiUrl}/classes/UsedBook?${query}`, { headers: this.HEADERS });
     }
 
-    editBookById(data: object, bookId: string, userId: string) {
-        return this.http.put<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, addOwner(data, userId),
+    editBookById(bookId: string, options: object) {
+        return this.http.put<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, options,
             {
                 headers: {
                     ...this.HEADERS,

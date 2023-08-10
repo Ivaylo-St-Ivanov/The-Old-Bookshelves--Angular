@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from 'src/app/user/user.service';
 import { BooksService } from '../books.service';
+import { addBoughtBy, addOwner } from 'src/app/util/util';
 
 @Component({
     selector: 'app-rating',
@@ -34,7 +35,7 @@ export class RatingComponent implements OnInit {
         const bookId = this.activatedRoute.snapshot.params['bookId'];
         const userId = this.user.objectId;
         
-        const { bookName, imageUrl, author, cover, coverPrice, price, description, rating, used } = this.book;
+        const { bookName, imageUrl, author, cover, coverPrice, price, description, rating, used, owner, boughtBy } = this.book;
 
         const newRate = Math.ceil((star + rating) / 2);
         
@@ -50,7 +51,17 @@ export class RatingComponent implements OnInit {
             rating: newRate
         }
 
-        this.bookService.editBookById(newBookData, bookId, userId).subscribe(() => {
+        let options; 
+
+        if (owner?.objectId == userId) {
+            options = addOwner(newBookData, userId);
+        } else if (boughtBy?.objectId == userId) {
+            options = addBoughtBy(newBookData, userId);
+        } else {
+            options = newBookData;
+        }
+
+        this.bookService.editBookById(bookId, options).subscribe(() => {
             this.router.navigate([`/books/catalog/${bookId}/details`]);
         });
     }
