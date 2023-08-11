@@ -1,3 +1,7 @@
+# About "The Old Bookshelves" project.
+
+Brief documentation of the project can be found outside the "Client" folder in another README file (or at this link: https://github.com/Ivaylo-St-Ivanov/The-Old-Bookshelves--Angular). Here is only Angular documentation automatically generated when an Angular project is initialized.
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
