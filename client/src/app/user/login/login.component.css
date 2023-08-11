@@ -1,6 +1,6 @@
 .login-container {
     display: flex;
-    height: 87vh;
+    height: 90vh;
     flex-wrap: wrap;
     position: relative;
 }
@@ -27,7 +27,7 @@
 
 .login-container .right-top-img {
     width: 30%;
-    height: 87vh;
+    height: 90vh;
 }
 
 .login-container .right-top-img img {

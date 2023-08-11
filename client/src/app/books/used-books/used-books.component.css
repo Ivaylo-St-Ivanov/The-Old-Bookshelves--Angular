@@ -1,5 +1,6 @@
 .catalog-container {
     padding: 50px 200px;
+    min-height: 90vh;
 }
 
 .title-and-search {

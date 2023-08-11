@@ -30,16 +30,16 @@
 
 .top-img-container .message a {
     font-size: 26px;
-    color: rgb(222, 246, 10);
+    color: rgb(5, 254, 5);
 }
 
 .top-img-container .message a:hover {
     text-decoration: none;
-    color: rgb(5, 254, 5);
+    color: rgb(222, 246, 10);
 }
 
 .top-img-container .message a i {
-    color: #fff;
+    color: rgb(5, 254, 5);
     font-size: 24px;
     padding-left: 10px;
 }

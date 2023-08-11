@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
     boughtBooks: Book[] = [];
     isBoughtBooks: boolean = false;
 
-    constructor(private globalLoaderService: GlobalLoaderService, private userService: UserService, private bookService: BooksService) { }
+    constructor(public globalLoaderService: GlobalLoaderService, private userService: UserService, private bookService: BooksService) { }
 
     ngOnInit(): void {
         this.getUserWithHisBooks();
@@ -29,31 +29,31 @@ export class UserProfileComponent implements OnInit {
         this.globalLoaderService.showLoader();
 
         this.userService.getCurrentUser().subscribe((user) => {
-            this.user = user;
-
-            const query = `where={"owner": {"__type":"Pointer","className":"_User","objectId":"${user.objectId}"}}`;
-
-            this.bookService.getBooksByUser(query).subscribe((result) => {
-                this.bookForSale = result.results;
-
-                if (result.results.length > 0) {
-                    this.isBooksForSale = true;
-                }
-            });
-
-            const queryForBoughtBy = `where={"boughtBy": {"__type":"Pointer","className":"_User","objectId":"${user.objectId}"}}`
-
-            this.bookService.getBooksByUser(queryForBoughtBy).subscribe((result) => {
-                this.boughtBooks = result.results;
-
-                if (result.results.length > 0) {
-                    this.isBoughtBooks = true;
-                }
-            });
-
             setTimeout(() => {
+                this.user = user;
+    
+                const query = `where={"owner": {"__type":"Pointer","className":"_User","objectId":"${user.objectId}"}}`;
+    
+                this.bookService.getBooksByUser(query).subscribe((result) => {
+                    this.bookForSale = result.results;
+    
+                    if (result.results.length > 0) {
+                        this.isBooksForSale = true;
+                    }
+                });
+    
+                const queryForBoughtBy = `where={"boughtBy": {"__type":"Pointer","className":"_User","objectId":"${user.objectId}"}}`
+    
+                this.bookService.getBooksByUser(queryForBoughtBy).subscribe((result) => {
+                    this.boughtBooks = result.results;
+    
+                    if (result.results.length > 0) {
+                        this.isBoughtBooks = true;
+                    }
+                });
+    
                 this.globalLoaderService.hideLoader();
-            }, 1000);
+            }, 1500);
         });
     }
 }

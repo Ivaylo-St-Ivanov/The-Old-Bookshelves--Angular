@@ -6,7 +6,7 @@
 /*------- home and about cover image ------*/
 
 .top-img-container {
-    height: 87vh;
+    height: 90vh;
     position: relative;
 }
 
@@ -22,7 +22,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    min-height: 67vh;
 }
 
 .cards .card {
@@ -40,6 +39,7 @@
     height: 35vh;
     margin-bottom: 10px;
     position: relative;
+    box-shadow: 2px 2px 8px;
 }
 
 .cards .card .image img {
@@ -164,7 +164,7 @@
 
 @media(max-width: 1020px) {
     .form input:last-of-type {
-        min-width: 60px;
+        min-width: 65px;
     }
 }
 

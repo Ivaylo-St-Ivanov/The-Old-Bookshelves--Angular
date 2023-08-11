@@ -175,6 +175,10 @@
         font-size: 20px;
     }
 
+    .top-img-container .quote {
+        font-size: 16px;
+    }
+
     .five-random {
         padding: 0px 100px;
     }
@@ -273,10 +277,10 @@
 
 @media(max-width: 383px) {
     .carousel {
-        margin-top: 89px;
+        margin-top: 109px;
     }
     
     .top-img-container .title {
-        top: -88px;
+        top: -108px;
     }
 }

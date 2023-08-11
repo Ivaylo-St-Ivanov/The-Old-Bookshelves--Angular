@@ -1,6 +1,7 @@
 .details-page-container {
     padding: 70px 300px;
     position: relative;
+    min-height: 90vh;
 }
 
 .details-page-container .main-info {
@@ -12,6 +13,7 @@
     margin-right: 30px;
     width: 300px;
     height: 300px;
+    box-shadow: 2px 2px 8px;
 }
 
 .details-page-container .main-info .background-image img {

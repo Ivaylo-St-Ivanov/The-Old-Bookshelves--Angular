@@ -9,7 +9,8 @@
 
 .image {
     width: 60%;
-    height: 88vh;
+    height: 92vh;
+    box-shadow: 8px 0px 18px black;
 }
 
 .image img {
