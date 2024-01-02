@@ -83,7 +83,7 @@ Page 404
 
     - This page is displayed when the path we are trying to access is not valid.
 
-## Screenshots
+## Screenshot
 
 ![Screenshot](./screenshot.png)
 
