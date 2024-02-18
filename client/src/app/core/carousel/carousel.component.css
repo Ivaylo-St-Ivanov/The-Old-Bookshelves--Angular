@@ -1,0 +1,89 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    background-color: gray;
+    border-bottom: 6px solid green;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: imageOpacity 2s ease-out forwards;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+}
+
+.active {
+    display: block;
+    opacity: 1;
+}
+
+.arrows {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.arrows>span {
+    cursor: pointer;
+    font-size: 48px;
+    padding: 0 16px;
+    transition: all 0.7s ease;
+}
+
+.arrows>span:hover {
+    color: green;
+}
+
+@keyframes imageOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media(max-width: 930px) {
+    .carousel {
+        height: 60vh;
+    }
+}
+
+@media(max-width: 480px) {
+    .carousel {
+        height: 80vh;
+    }
+}
+
+@media (max-height: 420px) and (orientation: landscape) {
+    .carousel {
+        height: 80vh;
+    }
+}
