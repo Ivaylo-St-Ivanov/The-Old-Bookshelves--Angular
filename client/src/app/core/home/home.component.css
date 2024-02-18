@@ -2,30 +2,44 @@
     height: unset;
 }
 
-.carousel {
-    border-bottom: 6px solid green;
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
+
 
 .top-img-container .title {
     position: absolute;
-    top: 100px;
-    left: 200px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: #fff;
+    padding: 0 100px;
+}
+
+.top-img-container .title div {
     background-color: #6f6c6c91;
+    backdrop-filter: blur(2px);
     padding: 10px 15px;
     border-radius: 30px;
     border-left: 1px solid;
     border-bottom: 1px solid;
     box-shadow: 2px 2px 10px black;
+    text-align: center;
 }
 
-.top-img-container .title h1 {
-    font-size: 66px;
+.top-img-container .title div h1 {
+    font-size: 38px;
     text-shadow: 2px 2px 2px black;
 }
 
-.top-img-container .title h2 {
-    font-size: 46px;
+.top-img-container .title div h2 {
+    font-size: 26px;
     font-style: italic;
     text-shadow: 2px 2px 2px black;
 }
@@ -98,32 +112,6 @@
     margin-bottom: 100px;
 }
 
-@media(max-width: 1650px) {
-    .top-img-container .title h1 {
-        font-size: 60px;
-    }
-
-    .top-img-container .title h2 {
-        font-size: 40px;
-    }
-}
-
-@media(max-width: 1470px) {
-    .top-img-container .title h1 {
-        font-size: 50px;
-    }
-
-    .top-img-container .title h2 {
-        font-size: 30px;
-    }
-}
-
-@media(max-width: 1300px) {
-    .top-img-container .title h1 {
-        font-size: 44px;
-    }
-}
-
 @media(max-width: 1100px) {
     .five-random .cards .card {
         width: 26%;
@@ -131,35 +119,18 @@
 }
 
 @media(max-width: 1080px) {
-    .top-img-container .title {
-        top: 80px;
-        left: 100px;
-    }
-
-    .top-img-container .title h1 {
-        font-size: 40px;
-    }
-
-    .top-img-container .title h2 {
-        font-size: 28px;
-    }
-
     .five-random {
         padding: 0px 150px;
     }
 }
 
 @media(max-width: 930px) {
-    .top-img-container .title {
-        left: 50px;
+    .top-img-container .title div h1 {
+        font-size: 30px;
     }
-
-    .top-img-container .title h1 {
-        font-size: 32px;
-    }
-
-    .top-img-container .title h2 {
-        font-size: 22px;
+    
+    .top-img-container .title div h2 {
+        font-size: 20px;
     }
 
     .middle {
@@ -168,19 +139,10 @@
 }
 
 @media(max-width: 850px) {
-    .top-img-container .title {
-        top: 50px;
-        left: 40px;
+    .carousel-wrapper {
+        height: 70%;
     }
-
-    .top-img-container .title h1 {
-        font-size: 28px;
-    }
-
-    .top-img-container .title h2 {
-        font-size: 20px;
-    }
-
+    
     .top-img-container .quote {
         font-size: 16px;
     }
@@ -191,15 +153,11 @@
 }
 
 @media(max-width: 650px) {
-    .top-img-container .title {
-        top: 30px;
+    .top-img-container .title div h1 {
+        font-size: 26px;
     }
-
-    .top-img-container .title h1 {
-        font-size: 24px;
-    }
-
-    .top-img-container .title h2 {
+    
+    .top-img-container .title div h2 {
         font-size: 18px;
     }
 
@@ -217,14 +175,6 @@
 }
 
 @media(max-width: 520px) {
-    .top-img-container .title {
-        top: 15px;
-    }
-
-    .top-img-container .title h1 {
-        font-size: 22px;
-    }
-
     .middle h3 {
         font-size: 18px;
         font-weight: bold;
@@ -234,14 +184,16 @@
 
 @media(max-width: 480px) {
     .top-img-container .title {
-        left: 10px;
+        justify-content: unset;
+        top: 50px;
+        padding: 0 20px;
     }
 
-    .top-img-container .title h1 {
-        font-size: 20px;
+    .top-img-container .title div h1 {
+        font-size: 22px;
     }
-
-    .top-img-container .title h2 {
+    
+    .top-img-container .title div h2 {
         font-size: 16px;
     }
 
@@ -258,6 +210,21 @@
     }
 }
 
+@media (max-height: 420px) and (orientation: landscape) {
+    .top-img-container .title {
+        justify-content: center;
+        top: 0;
+    }
+
+    .top-img-container .title div h1 {
+        font-size: 22px;
+    }
+    
+    .top-img-container .title div h2 {
+        font-size: 16px;
+    }
+}
+
 @media(max-width: 430px) {
     .five-random {
         padding: 0px 100px;
@@ -268,26 +235,8 @@
     }
 }
 
-@media(max-width: 420px) {
-    .carousel {
-        margin-top: 63px;
-    }
-
+@media(max-width: 400px) {
     .top-img-container .title {
-        top: -62px;
-        left: 0px;
-        border-radius: unset;
-        width: 100%;
-        background-color: black;
-    }
-}
-
-@media(max-width: 383px) {
-    .carousel {
-        margin-top: 109px;
-    }
-    
-    .top-img-container .title {
-        top: -108px;
+        top: 40px;
     }
 }
