@@ -40,6 +40,11 @@
     margin-bottom: 10px;
     position: relative;
     box-shadow: 2px 2px 8px;
+    transition: all 1s ease;
+}
+
+.cards .card .image:hover {
+    transform: scale(1.03);
 }
 
 .cards .card .image img {
@@ -73,6 +78,11 @@
     padding: 0px 10px;
     font-size: 20px;
     color: green;
+}
+
+.hovered {
+    transform: translate(-5px);
+    transition: 0.5s;
 }
 
 @media(max-width: 1100px) {
@@ -147,6 +157,7 @@
     cursor: pointer;
     box-shadow: 4px 4px 8px 0px;
     margin-bottom: 40px;
+    transition: all 0.7s ease;
 }
 
 .form input:last-of-type:hover {
@@ -165,6 +176,12 @@
 @media(max-width: 1020px) {
     .form input:last-of-type {
         min-width: 65px;
+    }
+}
+
+@media(max-width: 400px) {
+    .form input:last-of-type {
+        width: 25%;
     }
 }
 

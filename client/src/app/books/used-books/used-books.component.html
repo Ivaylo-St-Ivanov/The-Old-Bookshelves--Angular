@@ -3,13 +3,14 @@
         <h3>Catalog</h3>
         <div class="search">
             <form #searchForm="ngForm" (ngSubmit)="searchSubmitHandler(searchForm)">
-                <input type="text" name="search" placeholder="Search..." ngModel #searchInput="ngModel"><i (click)="searchSubmitHandler(searchForm)" class="fas fa-search"></i>
+                <input type="text" name="search" placeholder="Search..." ngModel #searchInput="ngModel"><i
+                    (click)="searchSubmitHandler(searchForm)" class="fas fa-search"></i>
             </form>
         </div>
     </div>
     <hr>
     <div class="cards">
-        <div class="card" *ngFor="let book of booksList">
+        <div class="card" *ngFor="let book of booksList" (mouseenter)="setHovered(book.objectId)" (mouseleave)="setHovered('')">
             <a [routerLink]="['/books/catalog/', book.objectId, 'details']">
                 <div class="image">
                     <img src="{{book.imageUrl}}" alt="{{book.bookName}} by {{book.author}}">
@@ -21,7 +22,10 @@
                     <span>{{book.bookName}}</span>
                     <span>by {{book.author}}</span>
                     <span>with {{book.cover}}</span>
-                    <span><strong>{{book.price}} lv.</strong><i *ngIf="book.coverPrice" class="fas fa-hand-point-left"></i><s *ngIf="book.coverPrice">{{book.coverPrice}} lv.</s></span>
+                    <span><strong>{{book.price}} lv.</strong><i [ngClass]="{
+'fas fa-hand-point-left' : book.coverPrice,
+'hovered' : hovered == book.objectId
+                    }"></i><s *ngIf="book.coverPrice">{{book.coverPrice}} lv.</s></span>
                 </div>
             </a>
         </div>

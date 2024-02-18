@@ -11,6 +11,7 @@ import { BooksService } from 'src/app/books/books.service';
 })
 export class HomeComponent implements OnInit {
     books: Book[] = [];
+    hovered: string = '';
 
     constructor(private bookService: BooksService) {}
 
@@ -37,5 +38,9 @@ export class HomeComponent implements OnInit {
 
             this.books = five;
         });
+    }
+
+    setHovered(bookId: string) {
+        this.hovered = bookId;
     }
 }

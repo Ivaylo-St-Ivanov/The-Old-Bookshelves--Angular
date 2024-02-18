@@ -28,6 +28,7 @@
 .edit-book-container form input:last-of-type {
     font-size: 18px;
     font-weight: bolder;
+    transition: all 0.7s ease;
 }
 
 .edit-book-container form input:last-of-type:hover {

@@ -52,6 +52,7 @@
     font-weight: bolder;
     box-shadow: 4px 4px 8px 0px gray;
     margin-right: 20px;
+    transition: all 0.7s ease;
 }
 
 .details-page-container .buttons button:hover {
@@ -95,9 +96,9 @@
 
 .delete-confirmation {
     position: absolute;
-    width: 50%;
-    height: 50%;
+    padding: 16px;
     background-color: rgba(240, 111, 111, 0.7);
+    backdrop-filter: blur(2px);
     border: 4px solid red;
     border-radius: 15px;
     box-shadow: 0px 0px 18px 8px white;
@@ -105,6 +106,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: opacityShow 1s forwards;
 }
 
 .delete-confirmation>div {
@@ -120,6 +122,7 @@
     margin: 10px;
     border-radius: 12px;
     padding: 5px 10px;
+    transition: all 1s ease;
 }
 
 .delete-confirmation .cancel:hover {
@@ -131,10 +134,23 @@
     border-radius: 12px;
     padding: 5px 10px;
     color: red;
+    transition: all 1s ease;
 }
 
 .delete-confirmation .delete:hover {
     box-shadow: 0px 0px 18px white;
+}
+
+@keyframes opacityShow {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @media(max-width: 1370px) {
@@ -196,12 +212,6 @@
 
     .details-page-container .buttons {
         margin-left: 100px;
-    }
-}
-
-@media(max-width: 600px) {
-    .delete-confirmation {
-        width: 75%;
     }
 }
 

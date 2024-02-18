@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./guard-page.component.css']
 })
 export class GuardPageComponent {
+    hovered: boolean = false;
 
+    setHovered(state: boolean) {
+      this.hovered = state;
+    }
 }

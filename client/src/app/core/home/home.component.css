@@ -16,17 +16,18 @@
     border-radius: 30px;
     border-left: 1px solid;
     border-bottom: 1px solid;
+    box-shadow: 2px 2px 10px black;
 }
 
 .top-img-container .title h1 {
     font-size: 66px;
-    text-shadow: 3px 3px 0px black;
+    text-shadow: 2px 2px 2px black;
 }
 
 .top-img-container .title h2 {
     font-size: 46px;
     font-style: italic;
-    text-shadow: 3px 3px 0px black;
+    text-shadow: 2px 2px 2px black;
 }
 
 .middle {
@@ -56,6 +57,11 @@
     align-items: center;
     height: 60vh;
     padding: 0px 50px 50px 50px;
+}
+
+.down-img img {
+    box-shadow: 0px 0px 8px black;
+    border-radius: 8px;
 }
 
 .quote-container {
@@ -272,6 +278,7 @@
         left: 0px;
         border-radius: unset;
         width: 100%;
+        background-color: black;
     }
 }
 

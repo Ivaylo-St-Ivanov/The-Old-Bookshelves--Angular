@@ -31,10 +31,11 @@
 .top-img-container .message a {
     font-size: 26px;
     color: rgb(5, 254, 5);
+    text-decoration: none;
+    transition: all 0.7s ease;
 }
 
 .top-img-container .message a:hover {
-    text-decoration: none;
     color: rgb(222, 246, 10);
 }
 

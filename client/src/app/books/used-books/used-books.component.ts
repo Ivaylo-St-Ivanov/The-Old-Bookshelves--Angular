@@ -14,6 +14,7 @@ import { NgForm } from '@angular/forms';
 export class UsedBooksComponent implements OnInit {
     booksList: Book[] = [];
     isEmptyBookList: boolean = false;
+    hovered: string = '';
 
     constructor(private booksService: BooksService, public globalLoaderService: GlobalLoaderService) { }
 
@@ -54,5 +55,9 @@ export class UsedBooksComponent implements OnInit {
                 search: ''
             });
         });
+    }
+
+    setHovered(bookId: string) {
+        this.hovered = bookId;
     }
 };

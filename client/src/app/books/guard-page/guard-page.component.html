@@ -3,6 +3,9 @@
     <div class="overlay"></div>
     <div class="message">
         <p>Please login before reach this page or functionality!</p>
-        <a routerLink="/users/login">Login here <i class="fas fa-hand-point-left"></i></a>
+        <a routerLink="/users/login" (mouseenter)="setHovered(true)" (mouseleave)="setHovered(false)">Login here <i [ngClass]="{
+            'fas fa-hand-point-left' : true,
+            'hovered' : hovered
+        }"></i></a>
     </div>
 </div>
