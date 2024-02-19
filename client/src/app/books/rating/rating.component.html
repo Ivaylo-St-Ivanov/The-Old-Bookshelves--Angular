@@ -1,6 +1,14 @@
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" *ngIf="user">
         <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+            <li (click)="onClickStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
+                <i class="fa fa-star"></i>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-sm-12" *ngIf="!user">
+        <ul class="list-inline rating-list" *ngFor="let star of selectedStars" style="display: inline-block">
             <li (click)="onClickStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
                 <i class="fa fa-star"></i>
             </li>

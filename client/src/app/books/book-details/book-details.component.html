@@ -7,11 +7,12 @@
             <h3>{{book.bookName}}</h3>
             <span>by {{book.author}}</span>
             <span>with {{book.cover}}</span>
-            <span>Price: <strong>{{book.price}} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{book.coverPrice}} lv.</s></span>
+            <span>Price: <strong>{{book.price}} lv.</strong><i class="fas fa-hand-point-left"></i><s>{{book.coverPrice}}
+                    lv.</s></span>
         </div>
     </div>
     <div class="rating">
-        <app-rating />
+        <app-rating (toastMessageEvent)="receiveToastMessage($event)" />
     </div>
     <div class="buttons">
         <button (click)="onBuyClick()" *ngIf="isAuthenticated && !isOwner">Buy</button>
@@ -23,6 +24,10 @@
     <span class="description">Description</span>
     <hr>
     <p class="content">&emsp;{{book.description}}</p>
+
+    <div class="toast-message" *ngIf="toastMessage">
+        <span>{{ toastMessage }}</span>
+    </div>
 
     <div *ngIf="isDeleteClick" class="delete-confirmation-container">
         <div class="middle-container">

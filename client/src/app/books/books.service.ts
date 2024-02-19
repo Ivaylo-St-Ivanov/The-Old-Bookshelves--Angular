@@ -25,7 +25,7 @@ export class BooksService {
     }
 
     createBook(data: object, userId: string) {
-        return this.http.post<Book>(`${apiUrl}/classes/UsedBook`, addOwner(data, userId),
+        return this.http.post<Book>(`${apiUrl}/classes/Books`, addOwner(data, userId),
             {
                 headers: {
                     ...this.HEADERS,
@@ -35,21 +35,21 @@ export class BooksService {
     }
 
     getAllUsedBooks() {
-        return this.http.get<any>(`${apiUrl}/classes/UsedBook`, { headers: this.HEADERS });
+        return this.http.get<any>(`${apiUrl}/classes/Books`, { headers: this.HEADERS });
     };
 
     getUsedBookById(bookId: number) {
         return this.http
-            .get<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, { headers: this.HEADERS })
+            .get<Book>(`${apiUrl}/classes/Books/${bookId}`, { headers: this.HEADERS })
             .pipe(tap((book) => this.book$$.next(book)));
     };
 
     getBooksByUser(query: string) {
-        return this.http.get<any>(`${apiUrl}/classes/UsedBook?${query}`, { headers: this.HEADERS });
+        return this.http.get<any>(`${apiUrl}/classes/Books?${query}`, { headers: this.HEADERS });
     }
 
     editBookById(bookId: string, options: object) {
-        return this.http.put<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, options,
+        return this.http.put<Book>(`${apiUrl}/classes/Books/${bookId}`, options,
             {
                 headers: {
                     ...this.HEADERS,
@@ -59,11 +59,11 @@ export class BooksService {
     }
 
     deleteBook(bookId: number) {
-        return this.http.delete<Book>(`${apiUrl}/classes/UsedBook/${bookId}`, { headers: this.HEADERS });
+        return this.http.delete<Book>(`${apiUrl}/classes/Books/${bookId}`, { headers: this.HEADERS });
     }
 
     buyBook(data: object, bookId: string, userId: string) {
-        return this.http.put<any>(`${apiUrl}/classes/UsedBook/${bookId}`, addBoughtBy(data, userId),
+        return this.http.put<any>(`${apiUrl}/classes/Books/${bookId}`, addBoughtBy(data, userId),
             {
                 headers: {
                     ...this.HEADERS,

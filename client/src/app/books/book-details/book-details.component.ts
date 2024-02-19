@@ -28,8 +28,22 @@ export class BookDetailsComponent implements OnInit {
     isCancelClick: boolean = false;
     isBought: boolean = false;
     // boughtBook$ = this.store.select(getBoughtBook);
+    toastMessage: string = '';
+    toastTimer: any;
 
     constructor(private globalLoaderService: GlobalLoaderService, private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
+
+    receiveToastMessage(message: string) {
+        this.toastMessage = message;
+
+        if (this.toastTimer) {
+            clearTimeout(this.toastTimer);
+        }
+
+        this.toastTimer = setTimeout(() => {
+            this.toastMessage = '';
+        }, 3000);
+    }
 
     ngOnInit(): void {
         this.userService.user$.subscribe((user) => {
@@ -46,7 +60,7 @@ export class BookDetailsComponent implements OnInit {
 
     getBook(): void {
         this.globalLoaderService.showLoader();
-        
+
         const bookId = this.activatedRoute.snapshot.params['bookId'];
 
         const token = localStorage.getItem(USER_KEY);
@@ -106,9 +120,9 @@ export class BookDetailsComponent implements OnInit {
         // ]
         // this.store.dispatch(setData({ collection: data}));
         // console.log(this.store.dispatch(getData()));
-        
-        this.bookService.buyBook({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, userId).subscribe(() => {
-            this.router.navigate(['/books/catalog']);
-        });
+
+        // this.bookService.buyBook({ bookName, imageUrl, author, cover, coverPrice, price, description }, bookId, userId).subscribe(() => {
+        //     this.router.navigate(['/books/catalog']);
+        // });
     }
 }

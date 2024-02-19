@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from 'src/app/user/user.service';
 import { BooksService } from '../books.service';
-import { addBoughtBy, addOwner } from 'src/app/util/util';
 
 @Component({
     selector: 'app-rating',
@@ -15,13 +14,21 @@ export class RatingComponent implements OnInit {
     selectedValue: number = 0;
     book: any = {};
     user: any = {};
+    selectedStars: any = {};
 
     constructor(private activatedRoute: ActivatedRoute, private bookService: BooksService, private userService: UserService, private router: Router) { }
+
+    @Output() toastMessageEvent = new EventEmitter<any>();
+
+    sendDataToParent(toastMessage: string) {
+        this.toastMessageEvent.emit(toastMessage);
+    }
 
     ngOnInit(): void {
         this.bookService.book$.subscribe((value) => {
             this.selectedValue = value.rating;
             this.book = value;
+            this.selectedStars = this.stars.slice(0, this.selectedValue);
         });
 
         this.userService.user$.subscribe((value) => {
@@ -35,7 +42,7 @@ export class RatingComponent implements OnInit {
         const bookId = this.activatedRoute.snapshot.params['bookId'];
         const userId = this.user.objectId;
         
-        let { bookName, imageUrl, author, cover, coverPrice, price, description, rating, used, owner, boughtBy } = this.book;
+        let { bookName, imageUrl, author, cover, coverPrice, price, description, rating, used, owner } = this.book;
 
         if (rating == undefined) {
             rating = 1;
@@ -51,20 +58,14 @@ export class RatingComponent implements OnInit {
             price,
             description,
             used,
-            rating: newRate
+            rating: newRate,
+            owner
         }
 
-        let options; 
+        this.bookService.editBookById(bookId, newBookData).subscribe(() => {
+            let toastMessage = 'Successfully rated this book';
+            this.sendDataToParent(toastMessage);
 
-        if (owner?.objectId == userId) {
-            options = addOwner(newBookData, userId);
-        } else if (boughtBy?.objectId == userId) {
-            options = addBoughtBy(newBookData, userId);
-        } else {
-            options = newBookData;
-        }
-
-        this.bookService.editBookById(bookId, options).subscribe(() => {
             this.router.navigate([`/books/catalog/${bookId}/details`]);
         });
     }
