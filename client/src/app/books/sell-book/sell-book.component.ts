@@ -29,10 +29,11 @@ export class SellBookComponent implements OnInit {
         }
 
         const { imageUrl, bookName, author, cover, coverPrice, price, description } = form.value;
+        const rating = 1;
         const used = true;
         const userId = this.user?.objectId as string;
 
-        this.bookService.createBook({ imageUrl, bookName, author, cover, coverPrice, price, description, used }, userId).subscribe(() => {
+        this.bookService.createBook({ imageUrl, bookName, author, cover, coverPrice, price, description, rating, used }, userId).subscribe(() => {
             this.router.navigate(['/books/catalog']);
         });
     }

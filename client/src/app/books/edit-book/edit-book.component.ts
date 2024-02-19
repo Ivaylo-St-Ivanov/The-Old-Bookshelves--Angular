@@ -23,6 +23,7 @@ export class EditBookComponent implements OnInit {
     });
     book: any = {};
     user: any = {};
+    rating: any = {};
 
     constructor(private fb: FormBuilder, private bookService: BooksService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
 
@@ -37,6 +38,8 @@ export class EditBookComponent implements OnInit {
                 price: book.price,
                 description: book.description
             });
+
+            this.rating = book.rating
         });
 
         this.userService.user$.subscribe((user) => {
@@ -52,8 +55,10 @@ export class EditBookComponent implements OnInit {
         const { bookName, imageUrl, author, cover, coverPrice, price, description } = this.form.value;
         const bookId = this.activatedRoute.snapshot.params['bookId'];
         const userId = this.user.objectId;
+        const rating = this.rating;
+        const used = true;
 
-        const options = addOwner({ bookName, imageUrl, author, cover, coverPrice, price, description }, userId);
+        const options = addOwner({ bookName, imageUrl, author, cover, coverPrice, price, description, rating, used }, userId);
 
         this.bookService.editBookById(bookId, options).subscribe(() => {
             this.router.navigate([`/books/catalog/${bookId}/details`]);

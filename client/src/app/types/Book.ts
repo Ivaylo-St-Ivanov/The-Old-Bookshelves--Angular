@@ -8,6 +8,7 @@ export interface Book {
     price: number;
     description: string;
     used: boolean;
+    rating: number;
     owner: any;
     boughtBy: string;
 }
