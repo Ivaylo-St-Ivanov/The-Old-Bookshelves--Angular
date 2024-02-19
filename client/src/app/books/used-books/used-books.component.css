@@ -19,9 +19,14 @@
     border: double green;
 }
 
-.search i {
-    font-size: 28px;
-    cursor: pointer;
+.search button {
+    color: green;
+    box-shadow: 2px 2px 8px black;
+    transition: all 1s ease;
+}
+
+.search button:hover {
+    box-shadow: unset;
 }
 
 .catalog-container hr {
@@ -89,5 +94,18 @@
 @media(max-width: 420px) {
     .cards .card {
         width: 100%;
+    }
+}
+
+@media (max-width: 390px) {
+    .search form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .search input {
+        margin-right: unset;
     }
 }

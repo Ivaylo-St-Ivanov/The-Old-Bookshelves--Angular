@@ -179,9 +179,21 @@
     }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 500px) {
     .form input:last-of-type {
-        width: 25%;
+        width: 30%;
+    }
+}
+
+@media(max-width: 400px) {
+    .form {
+        padding: 25px;
+    }
+}
+
+@media(max-height: 420px) and (orientation: landscape) {
+    .form {
+        padding: 25px;
     }
 }
 
@@ -202,6 +214,7 @@ input.ng-invalid.ng-touched {
     right: 50px;
     width: 30%;
     background-color: rgba(240, 111, 111, 0.6);
+    backdrop-filter: blur(3px);
     font-size: 18px;
     font-weight: bolder;
     text-align: center;

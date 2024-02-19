@@ -15,6 +15,7 @@ export class UsedBooksComponent implements OnInit {
     booksList: Book[] = [];
     isEmptyBookList: boolean = false;
     hovered: string = '';
+    isResetShow: boolean = false;
 
     constructor(private booksService: BooksService, public globalLoaderService: GlobalLoaderService) { }
 
@@ -27,7 +28,7 @@ export class UsedBooksComponent implements OnInit {
 
         setTimeout(() => {
             this.booksService.getAllUsedBooks().subscribe((books) => {
-                this.booksList = books.results;
+                this.booksList = books.results.reverse();
                 this.globalLoaderService.hideLoader();
             });
         }, 2500);
@@ -38,7 +39,7 @@ export class UsedBooksComponent implements OnInit {
         const { search } = form.value;
 
         this.booksService.getAllUsedBooks().subscribe((books) => {
-            this.booksList = books.results;
+            this.booksList = books.results.reverse();
             let results;
 
             results = this.booksList.filter(b => b.author.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
@@ -50,6 +51,12 @@ export class UsedBooksComponent implements OnInit {
                 this.isEmptyBookList = true;
             }
             this.booksList = results;
+
+            if (search) {
+                this.isResetShow = true;
+            } else {
+                this.isResetShow = false;
+            }
 
             form.setValue({
                 search: ''

@@ -3,14 +3,16 @@
         <h3>Catalog</h3>
         <div class="search">
             <form #searchForm="ngForm" (ngSubmit)="searchSubmitHandler(searchForm)">
-                <input type="text" name="search" placeholder="Search..." ngModel #searchInput="ngModel"><i
-                    (click)="searchSubmitHandler(searchForm)" class="fas fa-search"></i>
+                <input type="text" name="search" placeholder="Search..." ngModel #searchInput="ngModel">
+                <button *ngIf="!isResetShow" (click)="searchSubmitHandler(searchForm)">Search</button>
+                <button *ngIf="isResetShow" (click)="searchSubmitHandler(searchForm)">Reset</button>
             </form>
         </div>
     </div>
     <hr>
     <div class="cards">
-        <div class="card" *ngFor="let book of booksList" (mouseenter)="setHovered(book.objectId)" (mouseleave)="setHovered('')">
+        <div class="card" *ngFor="let book of booksList" (mouseenter)="setHovered(book.objectId)"
+            (mouseleave)="setHovered('')">
             <a [routerLink]="['/books/catalog/', book.objectId, 'details']">
                 <div class="image">
                     <img src="{{book.imageUrl}}" alt="{{book.bookName}} by {{book.author}}">

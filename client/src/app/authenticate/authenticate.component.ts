@@ -8,14 +8,14 @@ import { UserService } from '../user/user.service';
     styleUrls: ['./authenticate.component.css']
 })
 export class AuthenticateComponent implements OnInit {
-    isAuthenticating = true;
+    isAuthenticating = false;
 
     constructor(private userService: UserService) {}
 
     ngOnInit(): void {
         this.userService.getCurrentUser().subscribe({
             next: () => {
-                this.isAuthenticating = false;
+                this.isAuthenticating = true;
             },
             error: () => {
                 this.isAuthenticating = false;
